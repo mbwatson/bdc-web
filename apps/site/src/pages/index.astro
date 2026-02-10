@@ -1,14 +1,21 @@
 ---
-import Base from "../layouts/Base.astro";
+import Base from '../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+
+const homeEntries = await getCollection('pages', ({ id }) =>
+  id.startsWith('home/')
+);
 ---
 
 <Base title="BioData Catalyst">
-  <section class="usa-section">
-    <div class="grid-container">
-      <h1>BioData Catalyst</h1>
-      <p class="usa-intro">
-        Welcome to the NHLBI BioData Catalyst ecosystem.
-      </p>
-    </div>
-  </section>
+  {homeEntries.map(async (entry) => {
+    const { Content } = await render(entry);
+    return (
+      <section class="usa-section">
+        <div class="grid-container">
+          <Content />
+        </div>
+      </section>
+    );
+  })}
 </Base>

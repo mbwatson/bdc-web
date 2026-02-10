@@ -1,7 +1,8 @@
 ---
-import "../styles/global.scss";
-import { SiteHeader } from "../components/SiteHeader";
-import { SiteFooter } from "../components/SiteFooter";
+import '../styles/global.scss';
+import { ViewTransitions } from 'astro:transitions';
+import { SiteHeader } from '../components/layout/SiteHeader';
+import { SiteFooter } from '../components/layout/SiteFooter';
 
 interface Props {
   title: string;
@@ -16,13 +17,14 @@ const { title } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body>
     <a class="usa-skipnav" href="#main-content">Skip to main content</a>
-    <SiteHeader client:only="react" />
+    <SiteHeader client:only="react" transition:persist />
     <main id="main-content">
       <slot />
     </main>
-    <SiteFooter client:only="react" />
+    <SiteFooter client:only="react" transition:persist />
   </body>
 </html>

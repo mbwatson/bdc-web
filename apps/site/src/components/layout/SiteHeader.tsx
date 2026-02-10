@@ -7,6 +7,7 @@ import {
   NavDropDownButton,
   Menu,
 } from "@trussworks/react-uswds";
+import classes from './layout.module.css';
 
 const navLinks = [
   { label: "About", href: "/about" },
@@ -63,7 +64,7 @@ export function SiteHeader() {
   ];
 
   return (
-    <Header basic showMobileOverlay={mobileNavOpen}>
+    <Header basic showMobileOverlay={mobileNavOpen} className={ classes.siteHeader }>
       <div className="usa-nav-container">
         <div className="usa-navbar">
           <Title>
