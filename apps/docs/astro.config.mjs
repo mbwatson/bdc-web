@@ -11,6 +11,10 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'BDC Documentation',
+			logo: {
+				src: '@bdc/ui/assets/bdc-logo.svg',
+				alt: 'BDC logo',
+			},
 			social: {
 				github: 'https://github.com/stagecc/bdc-web',
 			},

@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./components/*": "./components/*"
+    "./components/*": "./components/*",
+    "./assets/*": "./assets/*"
   }
 }
