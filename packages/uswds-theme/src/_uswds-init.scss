@@ -1,4 +1,5 @@
 @use "settings" as *;
+@forward "settings";
 
 @use "uswds-core" as core with (
   $theme-color-primary: $theme-color-primary,

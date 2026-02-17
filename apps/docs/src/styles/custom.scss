@@ -1,11 +1,10 @@
-@use "@bdc/uswds-theme/src/uswds-init" as core;
-@use "@bdc/uswds-theme/src/settings" as *;
+@use "@bdc/uswds-theme/src/uswds-init" as theme;
 
 /* Map USWDS tokens to Starlight CSS custom properties */
 :root {
-  --sl-color-accent-low: #{core.core-color($theme-color-primary-lightest)};
-  --sl-color-accent: #{core.core-color($theme-color-primary)};
-  --sl-color-accent-high: #{core.core-color($theme-color-primary-darker)};
-  --sl-font-system: #{core.core-font-family('sans')};
-  --sl-font-system-mono: #{core.core-font-family('mono')};
+  --sl-color-accent-low: #{theme.core-color(theme.$theme-color-primary-lightest)};
+  --sl-color-accent: #{theme.core-color(theme.$theme-color-primary)};
+  --sl-color-accent-high: #{theme.core-color(theme.$theme-color-primary-darker)};
+  --sl-font-system: #{theme.core-font-family('sans')};
+  --sl-font-system-mono: #{theme.core-font-family('mono')};
 }
