@@ -113,8 +113,11 @@ const faqs = defineCollection({
 export const slugify = function slug(name: string): string {
   const acronymMatch = name.match(/\(([^)]+)\)/);
   const base = acronymMatch ? acronymMatch[1] : name;
-  return base.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-}
+  return base
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+};
 
 const programs = defineCollection({
   loader: async () => {
@@ -136,13 +139,11 @@ const programs = defineCollection({
           name,
           description: String(program.description),
           numberOfStudies: (program.No_of_studies as { value: number }).value,
-          studies: studiesData.result.map(
-            (s: Record<string, unknown>) => ({
-              name: String(s.collection_name),
-              id: String(s.collection_id),
-              url: String(s.collection_action),
-            }),
-          ),
+          studies: studiesData.result.map((s: Record<string, unknown>) => ({
+            name: String(s.collection_name),
+            id: String(s.collection_id),
+            url: String(s.collection_action),
+          })),
         };
       }),
     );
