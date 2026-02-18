@@ -12,6 +12,8 @@ import {
 import { useCallback, useEffect, useRef, useState } from 'react';
 import classes from './layout.module.css';
 
+const isProd = import.meta.env.PROD;
+
 interface NavItem {
   label: string;
   href?: string;
@@ -39,7 +41,7 @@ const navConfig: NavItem[] = [
       { label: 'Usage Costs', href: '/resources/costs' },
       {
         label: 'Documentation',
-        href: 'https://bdcatalyst.gitbook.io/biodata-catalyst-documentation',
+        href: isProd ? 'https://bdcatalyst.gitbook.io/biodata-catalyst-documentation' : 'http://localhost:4322/',
         external: true,
       },
       { label: 'Terms of Use', href: '/resources/terms' },

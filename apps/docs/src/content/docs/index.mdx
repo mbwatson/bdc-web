@@ -1,22 +1,23 @@
 ---
-title: Welcome to BDC Documentation
-description: Get started building your docs site with Starlight.
+title: Documentation — NHLBI BioData Catalyst® (BDC)
+description: This is a repository for documentation related to the platforms and services that are part of the BDC ecosystem.
 template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  tagline: Welcome to NHLBI BioData Catalyst® (BDC)
   image:
     file: ../../assets/favicon.svg
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: Quick Start Guide
+      link: /guides/quick-start/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
+    - text: Read the BDC docs
+      link: /reference/
       icon: external
       variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
+import Button from '@bdc/ui/components/Button.astro';
 
 ## Next steps
 
@@ -32,5 +33,6 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 	</Card>
 	<Card title="Read the docs" icon="open-book">
 		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+    <Button>Tester</Button>
 	</Card>
 </CardGrid>
