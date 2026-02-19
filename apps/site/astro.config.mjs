@@ -23,6 +23,7 @@ export default defineConfig({
         scss: {
           loadPaths: [uswdsPackages],
           silenceDeprecations: ['import', 'global-builtin', 'if-function'],
+          quietDeps: true,
         },
       },
     },
