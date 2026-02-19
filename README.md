@@ -15,11 +15,12 @@ The platform is built using:
 
 ```
 apps/
-- site/     → Public-facing website
-- docs/     → Documentation site (future)
-docs/       → Developer documentation
-packages/   → Shared code (future)
-
+- site/       → Public-facing website
+- docs/       → Documentation site (future)
+services/
+- freshdesk/  → Freshdesk API proxy (Python/Lambda)
+docs/         → Developer documentation
+packages/     → Shared code (future)
 ````
 
 ---
@@ -54,17 +55,21 @@ npm run preview -w @bdc/site
 
 TBD
 
-### apps/freshdesk
+---
 
-Local proxy server that wraps the Freshdesk Lambda function (`app.py`) in a standard HTTP server for development and testing.
+## Services
+
+### services/freshdesk
+
+Local proxy server that wraps the Freshdesk Lambda function (`handler.py`) in a standard HTTP server for development and testing.
 
 Setup (one-time):
 
 ```bash
-pip install -r apps/freshdesk/requirements.txt
+pip install -r services/freshdesk/requirements.txt
 ```
 
-Then fill in your credentials in `apps/freshdesk/.env`:
+Then fill in your credentials in `services/freshdesk/.env`:
 
 ```
 FRESHDESK_API_KEY=your-api-key
@@ -75,7 +80,7 @@ RECAPTCHA_SECRET_KEY=your-secret-key
 Start the proxy:
 
 ```bash
-python apps/freshdesk/server.py
+python services/freshdesk/server.py
 ```
 
 This starts a server on `http://localhost:8787`. The site's FAQ loader reads `FRESHDESK_PROXY_URL` from `apps/site/.env` (already set to `http://localhost:8787`) and falls back to the production Lambda URL if unset.
