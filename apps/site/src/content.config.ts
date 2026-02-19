@@ -86,18 +86,16 @@ const coverage = defineCollection({
 
 const faqs = defineCollection({
   loader: async () => {
-    const proxyBase = process.env.FRESHDESK_PROXY_URL
-      ?? 'https://epxuifil2cc4sqfqws62zejcwi0cgfds.lambda-url.us-east-1.on.aws';
+    const proxyBase =
+      process.env.FRESHDESK_PROXY_URL ??
+      'https://epxuifil2cc4sqfqws62zejcwi0cgfds.lambda-url.us-east-1.on.aws';
     console.log(`[faqs] fetching from ${proxyBase}/faqs`);
-    const response = await fetch(
-      `${proxyBase}/faqs`,
-      {
-        headers: {
-          Accept: 'application/json',
-          Origin: 'https://biodatacatalyst.nhlbi.nih.gov',
-        },
+    const response = await fetch(`${proxyBase}/faqs`, {
+      headers: {
+        Accept: 'application/json',
+        Origin: 'https://biodatacatalyst.nhlbi.nih.gov',
       },
-    );
+    });
     if (!response.ok) {
       const text = await response.text();
       console.error(`[faqs] ${response.status}: ${text}`);
@@ -105,7 +103,10 @@ const faqs = defineCollection({
     }
     const data = await response.json();
     if (!Array.isArray(data)) {
-      console.error('[faqs] unexpected response:', JSON.stringify(data).slice(0, 200));
+      console.error(
+        '[faqs] unexpected response:',
+        JSON.stringify(data).slice(0, 200),
+      );
       return [];
     }
     return data
