@@ -55,20 +55,20 @@ npm run preview -w @bdc/site
 Run local development server:
 
 ```bash
-npm run dev -w @bdc/site
+npm run dev -w @bdc/docs
 ````
 
 Build:
 
 ```bash
-npm run build -w @bdc/site
+npm run build -w @bdc/docs
 ```
 
 
 Preview:
 
 ```bash
-npm run preview -w @bdc/site
+npm run preview -w @bdc/docs
 ```
 
 ---
