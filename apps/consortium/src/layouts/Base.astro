@@ -1,0 +1,44 @@
+---
+import '../styles/global.scss';
+import { ViewTransitions } from 'astro:transitions';
+import Sidebar from '@components/layout/Sidebar.astro';
+import { SiteHeader } from '@components/layout/SiteHeader';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+const displayTitle = title.includes('BioData Catalyst')
+  ? title
+  : `${title} | BioData Catalyst Consortium`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{displayTitle}</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <a class="usa-skipnav" href="#main-content">Skip to main content</a>
+    <SiteHeader client:only="react" transition:persist />
+    <div class="usa-section">
+      <div class="grid-container">
+        <div class="grid-row grid-gap">
+          <div class="usa-layout-docs__sidenav display-none desktop:display-block desktop:grid-col-3">
+            <Sidebar transition:persist />
+          </div>
+          <main class="desktop:grid-col-9 usa-prose" id="main-content">
+            <slot />
+          </main>
+        </div>
+        <div class="usa-layout-docs__sidenav desktop:display-none">
+          <Sidebar />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
