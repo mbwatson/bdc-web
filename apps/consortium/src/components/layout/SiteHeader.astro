@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets';
+import bdcLogo from '../../assets/bdc-logo.svg';
+---
+
+<div>
+  <header class="usa-header usa-header--basic margin-y-4">
+    <div class="usa-nav-container flex-column">
+      <a href="/" class="display-flex flex-column flex-align-center app-home-link padding-top-3">
+        <div class="usa-logo display-none">BioData Catalyst Consortium</div>
+        <Image src={bdcLogo} height="75" alt="BDC3 home" />
+        <span class="font-serif-3xl text-base-darker">Consortium</span>
+      </a>
+      <div class="usa-navbar flex-justify-center display-flex desktop:display-none">
+        <a href="/directory">Directory</a>
+        <a href="/resources">Resources</a>
+        <a href="/monitor">Monitor</a>
+      </div>
+    </div>
+  </header>
+</div>
+
+<style>
+  .usa-nav-container {
+    align-items: center;
+  }
+  .usa-navbar {
+    gap: 2rem;
+    padding: 2rem;
+  }
+  .app-home-link {
+    text-decoration: none;
+  }
+  .font-serif-3xl {
+    letter-spacing: 6px;
+  }
+</style>

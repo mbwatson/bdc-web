@@ -20,3 +20,11 @@ h3 {
 h4 {
   font-size: clamp(1.125rem, 1.8vw, 1.5rem);
 }
+
+a, a:visited {
+  color: #005ea2;
+}
+
+a:active, a:hover {
+  color: #003e82;
+}

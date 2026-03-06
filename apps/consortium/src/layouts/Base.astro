@@ -2,7 +2,7 @@
 import '../styles/global.scss';
 import { ViewTransitions } from 'astro:transitions';
 import Sidebar from '@components/layout/Sidebar.astro';
-import { SiteHeader } from '@components/layout/SiteHeader';
+import SiteHeader from '@components/layout/SiteHeader.astro';
 
 interface Props {
   title: string;
@@ -24,20 +24,15 @@ const displayTitle = title.includes('BioData Catalyst')
   </head>
   <body>
     <a class="usa-skipnav" href="#main-content">Skip to main content</a>
-    <SiteHeader client:only="react" transition:persist />
-    <div class="usa-section">
-      <div class="grid-container">
-        <div class="grid-row grid-gap">
-          <div class="usa-layout-docs__sidenav display-none desktop:display-block desktop:grid-col-3">
-            <Sidebar transition:persist />
-          </div>
-          <main class="desktop:grid-col-9 usa-prose" id="main-content">
-            <slot />
-          </main>
+    <SiteHeader transition:persist />
+    <div class="grid-container">
+      <div class="grid-row grid-gap">
+        <div class="usa-layout-docs__sidenav desktop:display-block desktop:grid-col-3 display-none">
+          <Sidebar transition:persist />
         </div>
-        <div class="usa-layout-docs__sidenav desktop:display-none">
-          <Sidebar />
-        </div>
+        <main class="desktop:grid-col-9 usa-prose" id="main-content">
+          <slot />
+        </main>
       </div>
     </div>
   </body>

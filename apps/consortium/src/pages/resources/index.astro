@@ -12,23 +12,19 @@ const links = [
 ---
 
 <Base title="Consortium Resources">
-  <section class="usa-section">
-    <div class="grid-container">
-      <h1>Consortium Resources</h1>
+  <h1>Resources</h1>
 
-      <ul class="usa-card-group">
-        {links.map((link) => (
-          <li class="usa-card tablet:grid-col-4">
-            <div class="usa-card__container">
-              <div class="usa-card__body">
-                <a href={link.href} class="usa-link">
-                  {link.label}
-                </a>
-              </div>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
+  <ul class="usa-card-group">
+    {links.map((link) => (
+      <li class="usa-card tablet:grid-col-4">
+        <div class="usa-card__container">
+          <div class="usa-card__body">
+            <a href={link.href} class="usa-link">
+              {link.label}
+            </a>
+          </div>
+        </div>
+      </li>
+    ))}
+  </ul>
 </Base>
