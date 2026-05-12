@@ -3,9 +3,9 @@ import { getCollection } from 'astro:content';
 import Base from '@layouts/Base.astro';
 
 const recurringMeetings = await getCollection('recurring-meetings');
-const bams = (await getCollection('bams')).sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
-);
+const bams = (
+  await getCollection('meetings', ({ data }) => data.kind === 'bams')
+).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 
 <Base title="Meeting Materials">
@@ -51,7 +51,7 @@ const bams = (await getCollection('bams')).sort(
   <ul class="usa-list">
     {bams.map((bam) => (
       <li>
-        <a href={`/resources/meetings/bams/${bam.id}`} class="usa-link">
+        <a href={`/consortium-resources/meeting-materials/${bam.id}`} class="usa-link">
           {bam.data.title}
         </a>
         {' '}

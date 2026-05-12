@@ -5,17 +5,42 @@ const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
 
 type NavItem = {
   label: string;
-  href: string;
+  href?: string;
   exact?: boolean;
   children?: NavItem[];
 };
 
-const materials = await getCollection('meeting-materials');
+const meetings = await getCollection('meetings');
 const rfcs = await getCollection('rfcs');
 
-const materialParents = materials
-  .filter((m) => !m.data.parent)
-  .sort((a, b) => b.data.order - a.data.order);
+const KIND_LABEL: Record<'quarterly' | 'bams', string> = {
+  quarterly: 'Quarterly Meetings',
+  bams: 'Bi-Annual Meetings',
+};
+
+// Group meetings by year-slug (the first path segment of the entry id).
+const byYear = new Map<string, typeof meetings>();
+for (const m of meetings) {
+  const yearSlug = m.id.split('/')[0];
+  if (!byYear.has(yearSlug)) byYear.set(yearSlug, []);
+  byYear.get(yearSlug)!.push(m);
+}
+
+const meetingMaterialsChildren: NavItem[] = [...byYear.entries()]
+  .sort(([a], [b]) => b.localeCompare(a)) // newest year first
+  .map(([yearSlug, entries]) => {
+    const year = yearSlug.match(/^\d{4}/)?.[0] ?? yearSlug;
+    const kind = entries[0].data.kind;
+    return {
+      label: `${year} ${KIND_LABEL[kind]}`,
+      children: entries
+        .sort((a, b) => a.data.date.getTime() - b.data.date.getTime())
+        .map((m) => ({
+          label: m.data.title,
+          href: `/consortium-resources/meeting-materials/${m.id}`,
+        })),
+    };
+  });
 
 const rfcChildren: NavItem[] = rfcs
   .sort((a, b) => a.data.order - b.data.order)
@@ -23,26 +48,6 @@ const rfcChildren: NavItem[] = rfcs
     label: rfc.data.title,
     href: `/consortium-resources/rfcs/${rfc.id}`,
   }));
-
-const meetingMaterialsChildren: NavItem[] = materialParents.map((parent) => {
-  const children = materials
-    .filter(
-      (m) =>
-        m.data.parent === parent.id ||
-        m.data.parent === parent.id.split('/')[0],
-    )
-    .sort((a, b) => a.data.order - b.data.order)
-    .map((child) => ({
-      label: child.data.title,
-      href: `/consortium-resources/meeting-materials/${child.id}`,
-    }));
-
-  return {
-    label: parent.data.title,
-    href: `/consortium-resources/meeting-materials/${parent.id}`,
-    children: children.length > 0 ? children : undefined,
-  };
-});
 
 const nav: NavItem[] = [
   {
@@ -82,7 +87,8 @@ const nav: NavItem[] = [
   },
 ];
 
-function isActive(href: string, exact = false) {
+function isActive(href: string | undefined, exact = false) {
+  if (!href) return false;
   if (exact) return pathname === href;
   return pathname === href || pathname.startsWith(`${href}/`);
 }
@@ -99,26 +105,42 @@ function isSectionActive(item: NavItem): boolean {
       {
         nav.map((section) => (
           <li class="usa-sidenav__item">
-            <a href={section.href} class={isSectionActive(section) ? "usa-current" : ""}>
-              {section.label}
-            </a>
+            {section.href ? (
+              <a href={section.href} class={isSectionActive(section) ? "usa-current" : ""}>
+                {section.label}
+              </a>
+            ) : (
+              <span class="display-block padding-y-1 padding-x-2 text-bold">
+                {section.label}
+              </span>
+            )}
             {section.children && isSectionActive(section) && (
               <ul class="usa-sidenav__sublist bg-gray-5">
                 {section.children.map((child) => (
                   <li class="usa-sidenav__item">
-                    <a href={child.href} class={isSectionActive(child) ? "usa-current" : ""}>
-                      {child.label}
-                    </a>
-                    {child.children && isSectionActive(child) && (
-                      <ul class="usa-sidenav__sublist bg-gray-5">
-                        {child.children.map((subchild) => (
-                          <li class="usa-sidenav__item">
-                            <a href={subchild.href} class={isActive(subchild.href) ? "usa-current" : ""}>
-                              {subchild.label}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
+                    {child.href ? (
+                      <a href={child.href} class={isSectionActive(child) ? "usa-current" : ""}>
+                        {child.label}
+                      </a>
+                    ) : child.children ? (
+                      <details open={isSectionActive(child)}>
+                        <summary class="display-block padding-y-1 padding-x-2 text-bold cursor-pointer">
+                          {child.label}
+                        </summary>
+                        <ul class="usa-sidenav__sublist bg-gray-5">
+                          {child.children.map((subchild) => (
+                            <li class="usa-sidenav__item">
+                              <a href={subchild.href} class={isActive(subchild.href) ? "usa-current" : ""}>
+                                {subchild.label}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </details>
+                    ) : (
+                      <span class="display-block padding-y-1 padding-x-2">
+                        {child.label}
+                      </span>
                     )}
                   </li>
                 ))}

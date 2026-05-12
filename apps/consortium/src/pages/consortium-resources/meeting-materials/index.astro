@@ -1,14 +1,62 @@
 ---
+import { getCollection } from 'astro:content';
 import Directory from '@layouts/Directory.astro';
+
+const KIND_LABEL = {
+  quarterly: 'Quarterly Meetings',
+  bams: 'Bi-Annual Meetings',
+} as const;
+
+const meetings = await getCollection('meetings');
+
+const byYear = new Map<number, typeof meetings>();
+for (const m of meetings) {
+  const y = m.data.date.getFullYear();
+  if (!byYear.has(y)) byYear.set(y, []);
+  byYear.get(y)!.push(m);
+}
+
+const years = [...byYear.entries()]
+  .sort(([a], [b]) => b - a)
+  .map(([year, entries]) => ({
+    year,
+    label: `${year} ${KIND_LABEL[entries[0].data.kind]}`,
+    entries: entries.sort(
+      (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+    ),
+  }));
 ---
 
 <Directory title="Meeting Materials">
   <div>
     <h1>Meeting Materials</h1>
-    <p>Posters, Presentations, and other materials presented at the BDC consortium Face-to-Face meetings are collected in the following sub-pages, grouped by meeting date.</p>
+    <p>Posters, presentations, and other materials presented at BDC consortium meetings.</p>
     <p>*Note: When registering for Face-to-Face meetings, attendees agree to the following:</p>
     <cite>
       The demo presentations during this meeting may contain controlled access, participant-level data. By registering for this event, I agree to respect the appropriate agreements and licenses that govern the use of this type of data. I agree to not take photographs, screenshots or videos of the data, derived data or aggregate data from the demo presentations. I agree to not use any other methods to record or replicate the data and I will not attempt to recreate any associated software results or analyses that may enable recapitulation of the original data from the demo presentations.
     </cite>
+
+    <h2 class="margin-top-4">Archive</h2>
+    {years.map((y) => (
+      <section class="margin-bottom-3">
+        <h3>{y.label}</h3>
+        <ul class="usa-list">
+          {y.entries.map((m) => (
+            <li>
+              <a
+                href={`/consortium-resources/meeting-materials/${m.id}`}
+                class="usa-link"
+              >
+                {m.data.title}
+              </a>
+              {' '}
+              <span class="text-base">
+                — {m.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
   </div>
 </Directory>

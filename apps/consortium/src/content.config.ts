@@ -81,16 +81,28 @@ const recurringMeetings = defineCollection({
   }),
 });
 
-const bams = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/bams' }),
+const meetings = defineCollection({
+  loader: glob({
+    pattern: '**/index.{md,mdx}',
+    base: './src/content/meetings',
+  }),
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
+    endDate: z.coerce.date().optional(),
     location: z.string().optional(),
-    notes: z.string().url().optional(),
-    slides: z.string().url().optional(),
-    reportout: z.string().url().optional(),
-    recording: z.string().url().optional(),
+    kind: z.enum(['quarterly', 'bams']),
+    featured: z.boolean().default(false),
+    links: z
+      .object({
+        notes: z.string().url().optional(),
+        slides: z.string().url().optional(),
+        recording: z.string().url().optional(),
+        reportout: z.string().url().optional(),
+        agenda: z.string().url().optional(),
+        feedback: z.string().url().optional(),
+      })
+      .default({}),
   }),
 });
 
@@ -103,23 +115,10 @@ const rfcs = defineCollection({
   }),
 });
 
-const meetingMaterials = defineCollection({
-  loader: glob({
-    pattern: '**/*.mdx',
-    base: './src/content/meeting-materials',
-  }),
-  schema: z.object({
-    title: z.string(),
-    parent: z.string().optional(),
-    order: z.number().default(0),
-  }),
-});
-
 export const collections = {
   members,
   'working-groups': workingGroups,
   'recurring-meetings': recurringMeetings,
-  bams,
+  meetings,
   rfcs,
-  'meeting-materials': meetingMaterials,
 };
