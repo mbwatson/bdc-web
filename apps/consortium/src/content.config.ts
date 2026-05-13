@@ -92,7 +92,6 @@ const meetings = defineCollection({
     endDate: z.coerce.date().optional(),
     location: z.string().optional(),
     kind: z.enum(['quarterly', 'bams']),
-    featured: z.boolean().default(false),
     links: z
       .object({
         notes: z.string().url().optional(),
