@@ -1,5 +1,24 @@
 ---
+import { getCollection } from 'astro:content';
 import Base from '@layouts/Base.astro';
+
+const now = new Date();
+const upcomingMeeting = (await getCollection('meetings'))
+  .filter((m) => (m.data.endDate ?? m.data.date) >= now)
+  .sort((a, b) => a.data.date.getTime() - b.data.date.getTime())[0];
+
+const formatDate = (d: Date) =>
+  d.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+
+const dateRange = upcomingMeeting
+  ? upcomingMeeting.data.endDate
+    ? `${formatDate(upcomingMeeting.data.date)} – ${formatDate(upcomingMeeting.data.endDate)}`
+    : formatDate(upcomingMeeting.data.date)
+  : null;
 ---
 
 <Base title="BioData Catalyst Consortium">
@@ -7,4 +26,20 @@ import Base from '@layouts/Base.astro';
   <p class="usa-intro">
     Welcome to the BioData Catalyst Consortium member portal.
   </p>
+
+  {upcomingMeeting && (
+    <section class="bg-primary-lighter padding-3 radius-md margin-y-4">
+      <h2 class="margin-top-0">Next consortium meeting</h2>
+      <p class="font-heading-lg margin-y-1">
+        {upcomingMeeting.data.title}
+      </p>
+      <p class="text-base margin-top-0">{dateRange}</p>
+      <a
+        href={`/consortium-resources/meeting-materials/${upcomingMeeting.id}`}
+        class="usa-button usa-button--big"
+      >
+        View details &amp; register
+      </a>
+    </section>
+  )}
 </Base>
