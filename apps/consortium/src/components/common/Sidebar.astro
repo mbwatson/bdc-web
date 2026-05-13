@@ -42,12 +42,10 @@ const meetingMaterialsChildren: NavItem[] = [...byYear.entries()]
     };
   });
 
-const rfcChildren: NavItem[] = rfcs
-  .sort((a, b) => a.data.order - b.data.order)
-  .map((rfc) => ({
-    label: rfc.data.title,
-    href: `/consortium-resources/rfcs/${rfc.id}`,
-  }));
+const rfcChildren: NavItem[] = rfcs.map((rfc) => ({
+  label: rfc.data.title.replace(/&amp;/g, '&'),
+  href: `/consortium-resources/rfcs/${rfc.id}`,
+}));
 
 const nav: NavItem[] = [
   {

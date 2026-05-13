@@ -1,5 +1,5 @@
 ---
-import { type CollectionEntry, getCollection, render } from 'astro:content';
+import { type CollectionEntry, getCollection } from 'astro:content';
 import FileLink from '@components/common/FileLink.astro';
 import Directory from '@layouts/Directory.astro';
 
@@ -16,14 +16,43 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await render(entry);
+
+const decode = (s: string) => s.replace(/&amp;/g, '&');
 ---
 
-<Directory title={entry.data.title}>
+<Directory title={decode(entry.data.title)}>
   <div>
-    <h1>{entry.data.title}</h1>
-    {entry.data.description && <p class="text-base text-gray-50">{entry.data.description}</p>}
+    <h1>{decode(entry.data.title)}</h1>
 
-    <Content components={{ a: FileLink }} />
+    <p>
+      <span class="usa-tag">{entry.data.phase.toUpperCase()}</span>
+      {' '}
+      <span class={`usa-tag ${entry.data.status === 'closed' ? 'bg-base' : 'bg-success'}`}>
+        {entry.data.status === 'closed' ? 'Closed' : 'Open'}
+      </span>
+    </p>
+
+    {entry.data.description && (
+      <p class="text-base">{entry.data.description}</p>
+    )}
+
+    {entry.data.url && (
+      <div class="margin-y-3">
+        <FileLink href={entry.data.url}>{decode(entry.data.title)}</FileLink>
+      </div>
+    )}
+
+    {entry.data.documents && (
+      <ul class="usa-list usa-list--unstyled">
+        {entry.data.documents.map((doc) => (
+          <li class="margin-y-3">
+            <FileLink href={doc.url}>{doc.title}</FileLink>
+            {doc.description && (
+              <p class="text-base margin-top-1">{doc.description}</p>
+            )}
+          </li>
+        ))}
+      </ul>
+    )}
   </div>
 </Directory>

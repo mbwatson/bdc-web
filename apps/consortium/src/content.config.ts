@@ -106,11 +106,25 @@ const meetings = defineCollection({
 });
 
 const rfcs = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/rfcs' }),
+  loader: async () => {
+    const text = await readFile('./src/content/rfcs.yaml', 'utf-8');
+    return loadYaml(text) as Array<Record<string, unknown>>;
+  },
   schema: z.object({
+    phase: z.enum(['draft', 'rfc']),
+    status: z.enum(['open', 'closed']),
     title: z.string(),
+    url: z.string().url().optional(),
     description: z.string().optional(),
-    order: z.number().default(0),
+    documents: z
+      .array(
+        z.object({
+          title: z.string(),
+          url: z.string().url(),
+          description: z.string().optional(),
+        }),
+      )
+      .optional(),
   }),
 });
 

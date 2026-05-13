@@ -1,0 +1,384 @@
+- id: stage-draft-1
+  phase: draft
+  status: open
+  title: 'STAGE-DRAFT-1: DataSTAGE Strategic Planning Decisions 2019-2021'
+  description: The Strategic Planning Decisions (STAGE-DRAFT-1) describes decisions made as a result of a small-group Strategic Planning meeting held in Bethesda, MD, on January 10, 2019. The purpose of
+    the meeting was to create the framework for STAGE Consortium to work together in common understanding to execute the mission and vision of the DataSTAGE program. Participants of the meeting included
+    NHLBI staff (Jon Kaltman, Alastair Thomson, Chip Schwartz, Jeffrey Snyder, Katie O’Sullivan), STAGE Steering Committee Chair (Ingrid Borecki), and representatives of STAGE Coordinating Center (Stan
+    Ahalt, Rebecca Boyles, Asia Mieczkowska). This document will continue to reflect action items and decisions made at the Consortium Leadership and Coordination Center level. Action Items and Decisions
+    are located within the STAGE Consortium Action Items and Decisions Log document.
+  documents:
+    - title: 'STAGE-DRAFT-1: DataSTAGE Strategic Planning Decisions 2019-2021'
+      url: https://docs.google.com/document/d/1wtGvuFMva0l237hKpagmDLRbJkuzHLWo-voQhuNn20I/edit?usp=sharing
+    - title: 'STAGE-DRAFT-1: DataSTAGE Strategic Planning Decisions Log 2019-2021'
+      url: https://docs.google.com/spreadsheets/d/1rRFgjv7FRqf0F4BOawDEgj78GEeGiJLvS6DuUvYWc-I/edit?usp=sharing
+- id: stage-draft-2
+  phase: draft
+  status: closed
+  title: 'STAGE-DRAFT-2: DataSTAGE Strategic Framework, Implementation Plan, and Project Management Plan Nomenclature'
+  url: https://docs.google.com/document/d/1HuhufpSNSAvbF-I-OWvktu0ufvkeOk3xy3bUrtvtEG8/edit?usp=sharing
+- id: stage-draft-3
+  phase: draft
+  status: closed
+  title: 'STAGE-DRAFT-3: Data Harmonization Working Group Workshop Report'
+  url: https://docs.google.com/document/d/1IM9J58HAcQToyMRIEl0yPmVCu9BwDYYcCVg8AWpS4IE/edit?usp=sharing
+- id: bdcatalyst-draft-4
+  phase: draft
+  status: closed
+  title: 'BDC-DRAFT-4: DAWG Data Upload and Download Policy and Recommendations for Users'
+  url: https://docs.google.com/document/d/1rJLUCjYm4SJ0pZce-mpzvn-khNnfonxSRFVhN3Qsc-4/edit?usp=sharing
+  description: link,id=106])_
+- id: stage-draft-5
+  phase: draft
+  status: closed
+  title: 'STAGE-DRAFT-5: Subject Identifier for MVP'
+  url: https://docs.google.com/document/d/1Y5w0LoSXaQ2Kabj2D4bg4zqtrWFxvBEJnlmDv7P73hA/edit?usp=sharing
+  description: link,id=105])_
+- id: bdcatalyst-draft-6
+  phase: draft
+  status: closed
+  title: 'BDC-DRAFT-6: DAWG Data Upload and Download Policy and Recommendations for DataSTAGE Platforms'
+  url: https://docs.google.com/document/d/1w1FiLBrMxKqCKx3XimquMP2QTq7fG7g2vfj5JEiSVRk/edit?usp=sharing
+  description: DAWG Data Upload and Download Policy and Recommendations for Platforms]([sitetree_link,id=136])_
+- id: bdcatalyst-draft-7
+  phase: draft
+  status: closed
+  title: 'BDC-DRAFT-7: BioData Catalyst Data Generator Guidance'
+  url: https://docs.google.com/document/d/1Gd2NmwZfsXCb2T5Wfjb_7eR_9hnXWs6NsmXyNnL1mFU/edit?usp=sharing
+- id: bdcatalyst-draft-8
+  phase: draft
+  status: closed
+  title: 'BDC-DRAFT-8: BioData Catalyst File-Level Minimal Metadata Model'
+  url: https://docs.google.com/document/d/1U3uh4P8oHKDvKTwi5HSwmije0q0MuxiSp-i3-6cSqIw/edit?usp=sharing
+- id: bdcatalyst-draft-9
+  phase: draft
+  status: closed
+  title: 'BDC-DRAFT-9: Managing Breaking Software Changes'
+  url: https://docs.google.com/document/d/1xGcVN2lUmPkzdZA3E8ppMiOS5LGHI7T_q0D1P7Rpk_E/edit?usp=sharing
+  description: This DRAFT RFC is for changes that break the integration between the ecosystems of BioData Catalyst, namely Terra, Gen3, Dockstore, Seven Bridges, PIC-SURE and the HeLx applications. Each
+    ecosystem is responsible for managing this problem for changes that impact modules internal to their systems.
+- id: bdcatalyst-draft-10
+  phase: draft
+  status: closed
+  title: 'BDC-DRAFT-10: NHLBI BioData Catalyst Ecosystem Security Statement'
+  url: https://docs.google.com/document/d/1lKyFEsOcElQY4nr4O0adD3wYON8AOVSd2DlA9I7OC9U/edit?usp=sharing
+  description: The purpose of this RFC is to provide the NHLBI BioData Catalyst Consortium with a clear statement on security mechanisms of the ecosystem that protect the confidentiality, integrity, provenance,
+    and availability of the hosted data as well as any data that may be uploaded using the ecosystem’s “Bring Your Own Data” (BYOD) functionality.
+- id: bdcatalyst-draft-11
+  phase: draft
+  status: closed
+  title: 'BDC-DRAFT-11: NHLBI BioData Catalyst Source of Truth for Ecosystem Data'
+  url: https://docs.google.com/document/d/15VPyFXSTl03Ue-JpCpZ6vm6EbP1SwoHN_xylCFGy-Ig/edit?usp=sharing
+  description: The purpose of this document is to suggest an approach for providing a single source of truth for metadata within the BioData Catalyst ecosystem and to highlight the risks in continuing to
+    have inconsistencies throughout the ecosystem.
+- id: bdcatalyst-draft-12
+  phase: draft
+  status: closed
+  title: 'BDC-DRAFT-12: NHLBI BioData Catalyst Submission Files'
+  url: https://docs.google.com/document/d/14A8VZsz9GCjaAy_pz_D1AEd1TbppQwTI/edit?usp=sharing&ouid=109319607752708271785&rtpof=true&sd=true
+  description: This document is meant to define the file types to accompany data submission to the BioData Catalyst ecosystem. It also provides a snapshot of the current status of the ingest form and dbGaP
+    initiatives at time of authoring this document.
+- id: bdcatalyst-draft-13
+  phase: draft
+  status: open
+  title: 'BDC-DRAFT-13: NHLBI BioData Catalyst Open Access Data Statement'
+  url: https://docs.google.com/document/d/1dQTORIJFH-9S-NupoQaZ3Ze5DZ_2FAmmvdrWoPfawTE/edit?usp=sharing
+  description: The purpose of this RFC is to provide the NHLBI BioData Catalyst Consortium and users of the NHLBI BioData Catalyst ecosystem with a clear statement on open access data.
+- id: bdc-draft-15
+  phase: draft
+  status: open
+  title: 'BDC-DRAFT-15: NHLBI BioData Catalyst Validation of Data Dictionary Fields'
+  url: https://docs.google.com/document/d/1hwrX4HpwI-E2BmE2Y_inwUjLlqgLA98L4QTRuBEUGfU/edit?usp=sharing
+  description: '## BDC-DRAFT-15_NHLBI BioData Catalyst Validation of Data Dictionary Fields'
+- id: bdc-draft-16
+  phase: draft
+  status: open
+  title: 'BDC-DRAFT-16: NHLBI BioData Catalyst Data Definitions'
+  url: https://docs.google.com/document/d/1pYLKfS8cYpoCvqB-4sPueP6mLl5Bz_pAeTcvH29RUmI/edit?usp=sharing
+  description: '## BDC-DRAFT-16_NHLBI BioData Catalyst Data Definitions'
+- id: bdc-draft-17
+  phase: draft
+  status: open
+  title: 'BDC-DRAFT-17: NHLBI BioData Catalyst Ingest New Data Types'
+  url: https://docs.google.com/document/d/1UzT16kCxJkaEuNSwFTmKEejJo9yY77B9hBUNXuUsIO0/edit?usp=sharing
+  description: '## BDC-DRAFT-17_NHLBI BioData Catalyst Ingest New Data Types'
+- id: bdc-draft-18
+  phase: draft
+  status: open
+  title: 'BDC-DRAFT-18: NHLBI BioData Catalyst Open Access Data'
+  url: https://docs.google.com/document/d/14F33wO8iJXRM-wkpJ9uQ-xlHm1OzcXgBBjBGvUvI5F4/edit?usp=sharing
+  description: '## BDC-DRAFT-18_NHLBI BioData Catalyst Open Access Data'
+- id: bdc-draft-19
+  phase: draft
+  status: open
+  title: 'BDC-DRAFT-19: NHLBI BioData Catalyst Interop Search and Study Data Transfer'
+  url: https://docs.google.com/document/d/17JfT7fRLdTD20GBuEf17CEZTEui2abMr5YpIfYaIc28/edit?usp=sharing
+  description: '## BDC-DRAFT-19_NHLBI BioData Catalyst Interop Search and Study Data Transfer'
+- id: bdc-draft-20
+  phase: draft
+  status: open
+  title: 'BDC-DRAFT-20: NHLBI BioData Catalyst ADRESS Interview Results'
+  url: https://docs.google.com/document/d/1BNMsf3337VB-GytQ94lii0JEI4ETHvAXUWebndV_YIA/edit?usp=sharing
+  description: '## BDC-DRAFT-20_NHLBI BioData Catalyst ADRESS Interview Results'
+- id: bdc-draft-21
+  phase: draft
+  status: closed
+  title: 'BDC-DRAFT-21: NHLBI BioData Catalyst Data Standards for Electrophysiology Assay Profiles'
+  url: https://docs.google.com/document/d/1HlNlnus2FaH9XU0iy45icY2VP_JSJq7ZzuSjRphwffg/edit
+  description: '## BDC-DRAFT-21 NHLBI BioData Catalyst Data Standards for Electrophysiology Assay Profiles'
+- id: bdc-draft-22
+  phase: draft
+  status: closed
+  title: 'BDC-DRAFT-22: NHLBI BioData Catalyst Data Standards for Small Molecule Profiles'
+  url: https://docs.google.com/document/d/1xD5KUY4JocUkkiN7E79zH3gi3o4rAXiIXYzRLqFBHgQ/edit
+  description: '## BDC-DRAFT-22 NHLBI BioData Catalyst Data Standards for Small Molecule Profiles'
+- id: bdc-draft-23
+  phase: draft
+  status: closed
+  title: 'BDC-DRAFT-23: NHLBI BioData Catalyst Data Standards for Nucleotide-Based Profiles'
+  url: https://docs.google.com/document/d/14nnemZymWZgLAZEK1vh9W9Dx2i_AQcBfnbRnGTJMUKQ/edit
+  description: '## BDC-DRAFT-23 NHLBI BioData Catalyst Data Standards for Nucleotide-Based Profiles'
+- id: bdc-draft-24
+  phase: draft
+  status: closed
+  title: 'BDC-DRAFT-24: NHLBI BioData Catalyst Data Standards for Clinical and Preclinical Data'
+  url: https://docs.google.com/document/d/1c8fIs5CITe6iHJjnQCkwbHDC14FuXfP83fidGEa3nGs/edit
+  description: '## BDC-Draft-RFC-24 NHLBI BioData Catalyst Data Standards for Clinical and Preclinical Data'
+- id: bdc-draft-25
+  phase: draft
+  status: closed
+  title: 'BDC-DRAFT-25: NHLBI BioData Catalyst Data Standards for Medical and Microscopy Imaging'
+  url: https://docs.google.com/document/d/15DJIgm7ihEjZ4Mc6TRpuMWCRLEyvf1pvhQ9RhdZ8Xpc/edit
+  description: '## BDC-Draft-RFC-25 NHLBI BioData Catalyst Data Standards for Medical and Microscopy Imaging'
+- id: bdc-draft-26
+  phase: draft
+  status: closed
+  title: 'BDC-DRAFT-26: NHLBI BioData Catalyst Data Standards for Laboratory Assay Profiles'
+  url: https://docs.google.com/document/d/1PjxAUOdZ5dxpLi-l7EnGdZrotYJdIVxRG23fH__sDCo/edit
+  description: '## BDC-Draft-RFC-26 NHLBI BioData Catalyst Data Standards for Laboratory Assay Profiles'
+- id: bdc-draft-27
+  phase: draft
+  status: open
+  title: 'BDC-DRAFT-27: NHLBI BioData Catalyst Imaging Data Ingestion'
+  url: https://docs.google.com/document/d/1vX6BdUBhPkwoENQMFKr4xOpHMdoWjFO5E2C_GIG5uEQ/edit
+  description: '## BDC-Draft-RFC-27 NHLBI BioData Catalyst Imaging Data Ingestion'
+- id: bdc-draft-28
+  phase: draft
+  status: open
+  title: 'BDC-DRAFT-28: NHLBI BioData Catalyst Medical Image De-Identification Protocol'
+  url: https://docs.google.com/document/d/14-WfeMqgZz115DbBnFs-8AvcdRY1oIjCgi0K33pwMjE/edit?usp=sharing
+  description: '## BDC-DRAFT-28_NHLBI BioData Catalyst Medical Image De-Identification Protocol'
+- id: bdc-draft-29
+  phase: draft
+  status: open
+  title: 'BDC-DRAFT-29: NHLBI BioData Catalyst Clinical Data API Use Cases and Current State Landscape Assessment'
+  url: https://docs.google.com/document/d/1SsEuVRkWD3xpizLmhmq4PE8cS8j7tFpbiV-AzGuLQf4/edit
+  description: '## BDC-Draft-RFC-29 NHLBI BioData Catalyst Clinical Data API Use Cases and Current State Landscape Assessment'
+- id: bdc-draft-31
+  phase: draft
+  status: open
+  title: 'BDC-DRAFT-31: NHLBI BioData Catalyst DOIs'
+  url: https://docs.google.com/document/d/1ewdapClZXeDXGC8abnM6wAQ8i8LjAHy_r9HSK3KG0os/edit?usp=sharing
+  description: '## BDC-Draft-RFC-31_NHLBI BioData Catalyst DOIs'
+- id: bdc-draft-34
+  phase: draft
+  status: open
+  title: 'BDC-DRAFT-34: NHLBI BioData Catalyst PFB DRS URI Naming Convention'
+  url: https://docs.google.com/document/d/1Qi1ZF8lm5ICR-4bBSR1Jc7kMOehhPCCL6rpRfkSDeAc/edit?usp=sharing
+  description: '## BDC-DRAFT-34_NHLBI BioData Catalyst PFB DRS URI Naming Convention'
+- id: stage-rfc-1
+  phase: rfc
+  status: open
+  title: 'STAGE-RFC-1: DataSTAGE User Narratives June 2019'
+  url: https://docs.google.com/document/d/1m78tCB8cgV3cAbGyIUx4c8C9SV3X9rqkUdv5oTH-G9g/edit?usp=sharing
+  description: 'The DataSTAGE Coordinating Center (STAGECC) is circulating, for informational purposes, the DataSTAGE User Narratives for delivery & completion by June 2019. This STAGE-RFC provides a means
+    of transparency and documentation of strategic planning process and outcomes for the DataSTAGE Consortium, pursuant to the RFC process established by the Consortium. STAGE-RFC-1: DataSTAGE User Narratives
+    June 2019 describes agreement among participants in the STAGE Consortium on the User Narratives that will be addressed by June 2019. The purpose of the RFC is to formalize and circulate this agreement
+    to all stakeholders DataSTAGE program. Subsequent RFCs will be released to capture agreement on later collections of User Narratives.'
+- id: bdcatalyst-rfc-2
+  phase: rfc
+  status: open
+  title: 'STAGE-RFC-2: DataSTAGE Strategic Planning Nomenclature'
+  url: https://docs.google.com/document/d/1QH-ZzkugX8TwAeMttjruetjm9pLNjOitb0FQk8MDFsQ/edit?usp=sharing
+  description: The BioData Catalyst Coordinating Center (BDC3) has established a formal, standardized nomenclature to help teams and NHLBI navigate and fully understand the BioData Catalyst Strategic Framework,
+    Implementation Plan, and Project Management Plan.
+- id: stage-rfc-3
+  phase: rfc
+  status: open
+  title: 'STAGE-RFC-3: Data Harmonization Working Group Workshop Report'
+  url: https://docs.google.com/document/d/1DZ38Hy4ZuwCZ3tiFr7YcYRVup3qma7lTV_zgBnKEysc/edit?usp=sharing
+  description: 'The Data Harmonization Working Group''s Workshop in March of 2019 at the STAGE face to face meeting was both a critical and successful event. For the first time, the different groups within
+    STAGE that have been working on the data in different ways came together to define key functional goals, to plan technical integration of different data, and to create pivotal synergies that will help
+    realize the vision for STAGE. Key goals included: data model harmonization; data harmonization and developing new strategies for both retrospective and prospective CDE/phenotype harmonization; STAGE
+    functional requirements, with a specific focus on semantic integration and technologies for search and discovery; and the use of these foundations for the instantiation of an AI-driven user narrative,
+    that will be submitted via the standard procedure. This document is meant to communicate the results of the workshop to all stakeholders. Further refinement of the requirements and action items will
+    take place in a standard software development environment such as GitHub.'
+- id: stage-rfc-4
+  phase: rfc
+  status: open
+  title: 'STAGE-RFC-4: Workplan 3.0 DataSTAGE User Narratives'
+  url: https://docs.google.com/document/d/11nee2ZxOrRjjxKbBVjrzV_Lm8WoBgut7UXwAEHtnlw0/edit?usp=sharing
+  description: 'STAGE-RFC-4: Workplan 3.0 DataSTAGE User Narratives describes agreement among participants in the STAGE Consortium on the User Narratives that will be addressed by March 2022. The purpose
+    of the RFC is to formalize and circulate this agreement to all stakeholders DataSTAGE program.'
+- id: stage-rfc-5
+  phase: rfc
+  status: open
+  title: 'STAGE-RFC-5: Subject Identifier for MVP'
+  url: https://docs.google.com/document/d/1Ep2j1IaOPb0Sj0BL09wz2sjPfZZ-pHvfztx54IdmRVc/edit?usp=sharing
+  description: 'STAGE-RFC-5: Subject Identifier for MVP: There is a pressing need in DataSTAGE to identify subjects across data sets and systems. A blocker was identified: Seven Bridges and i2b2 were not
+    using the same identifiers for subjects. In order to move through this blocker in time for MVP Go Live, participants of the Boston F2F made the following recommendation:'
+- id: bdcatalyst-rfc-6
+  phase: rfc
+  status: open
+  title: 'BDC-RFC-6: DAWG Data Upload and Download Policy and Recommendations for Users'
+  url: https://docs.google.com/document/d/1d3cl4EzDuZLS2oPu0W_yUMIh9WVWqa03TahJvl_0wwE/edit?usp=sharing
+  description: This document describes and defines data movement (data egress and ingress), explaining the types of data movement currently allowable on each platform, and what kinds of data should be downloaded
+    or uploaded. This document is meant to inform the BioData Catalyst Go Live users of the Data Access Working Group’s (DAWG) data upload and download recommendations and policies. These policies and recommendations
+    herein are specific to BioData Catalyst users.
+- id: bdcatalyst-rfc-7
+  phase: rfc
+  status: open
+  title: 'BDC-RFC-7: DAWG Data Upload and Download Policy and Recommendations for BioData Catalyst Platforms'
+  url: https://docs.google.com/document/d/1ciz_oFaNsg4W26YEvJwFyEKsIBBLTY4kFdyHWRHCeYU/edit?usp=sharing
+  description: This document describes and defines data movement (data egress and ingress), explaining the types of data movement currently allowable on each platform, and what kinds of data should be downloaded
+    or uploaded. This document is meant to inform the BioData Catalyst consortium of the Data Access Working Group’s (DAWG) recommendations for policy and language to be used to educate the Go Live BioData
+    Catalyst users.
+- id: bdcatalyst-rfc-8
+  phase: rfc
+  status: open
+  title: 'BDC-RFC-8: Workplan 3.1 Consortium Statement of Work &amp; Gantt charts'
+  description: The purpose of the RFC is to formalize and circulate this agreement to all stakeholders BioData Catalyst program.
+  documents:
+    - title: BDCatalyst-RFC-8a_Workplan 3.1_Consortium Statement of Work
+      description: BDCatalyst-RFC-8a_Workplan 3.1_Consortium Statement of Work describes agreement among participants in the BDCatalyst Consortium on the proposed Workplan 3.1 User Narratives, Features,
+        and Epics that will be addressed starting October 1, 2020 through March 31, 2022.
+      url: https://docs.google.com/document/d/1anrzxG_14TWDkW5CpV0p7symS-b0Cp9t2P_P5NymqYE/edit?usp=sharing
+    - title: BDCatalyst-RFC-8b_WP3.1_Gantt_charts
+      description: This document displays WP3.1 User Narratives, Features, & Epics in a Gantt chart report for the Workplan period of performance 10/1/2020-3/31/2022.
+      url: https://drive.google.com/file/d/18npzdAfl9el8Idtlf3dPLP0NBEPdVREW/view?usp=sharing
+    - title: BDCatalyst-RFC-8c_Workplan 3.1 _Executive Summary
+      description: The summary represents an overview of activities within each User Narrative, broadly grouped by theme. An appendix is provided at the end of the summary with information specific to the
+        NHLBI points of emphasis, their perceived impact, and their location within the 3.1 SOW.
+      url: https://docs.google.com/document/d/1cFSBpxvvAnNvfcHxrVf3qQDd7TlFwtZmOZ0N9H4rnuE/edit?usp=sharing
+- id: bdcatalyst-rfc-9
+  phase: rfc
+  status: open
+  title: 'BDC-RFC-9: Application Developer Guide - 1.0'
+  url: https://docs.google.com/document/d/10ipxxFli2Sbm9hWEx1dWp_DmF6OScyAvg66ZQI7vNy0/edit?usp=sharing
+  description: '## BDCatalyst-RFC-9 - Application Developer Guide 1.0'
+- id: bdcatalyst-rfc-10
+  phase: rfc
+  status: open
+  title: 'BDC-RFC-10: BioData Catalyst Minimal Metadata Model'
+  url: https://docs.google.com/document/d/12PBpTRT_suWzcJ5plsrcoZzlsDNfay4cLlTPS_KqakY/edit?usp=sharing
+  description: BioData Catalyst is an ecosystem built upon different platforms, each of which contains a unique set of tooling to access, filter, and analyze data stored in NHLBI cloud buckets. Metadata
+    (data about the data) is the primary currency that flows between these platforms and enables findability and interoperability. While these platforms may have different functions and use different pieces
+    of metadata to different ends, it is imperative that there is an agreement on a fundamental, core set of metadata to ensure basic operation of the ecosystem. Thus, in this RFC a file-level minimal metadata
+    model is proposed, comprising metadata elements which are required for indexing files into the ecosystem and for retrieval of files by a user with appropriate credentials.
+- id: bdcatalyst-rfc-11
+  phase: rfc
+  status: open
+  title: 'BDC-RFC-11: NHLBI BioData Catalyst Ecosystem Security Statement'
+  url: https://docs.google.com/document/d/1uFlIOyI_DXm_HYW4U_4qVInPk-IfiF6rZFy1kY93tIY/edit?usp=sharing
+  description: '## BDCatalyst-RFC-11: NHLBI BioData Catalyst Ecosystem Security Statement'
+- id: bdc-rfc-14
+  phase: rfc
+  status: open
+  title: 'BDC-RFC-14: NHLBI BioData Catalyst Consortium Glossary'
+  url: https://docs.google.com/document/d/1ETUTZw85UdspyQu9NrGkrkzbiTKw-ozFkn0gPE-vP70/edit?usp=sharing
+- id: bdc-rfc-15.1
+  phase: rfc
+  status: open
+  title: 'BDC-RFC-15.1: NHLBI BioData Catalyst Validation of Data Dictionary Fields'
+  url: https://docs.google.com/document/d/18M7DlxQVOtLfT6P-15ZYVn2g2Klesv902m3dQ6J9JaA/edit?usp=sharing
+  description: '## BDC-RFC-15.1 NHLBI BioData Catalyst Validation of Data Dictionary Fields'
+- id: bdc-rfc-16
+  phase: rfc
+  status: open
+  title: 'BDC-RFC-16: NHLBI BioData Catalyst Data Definitions'
+  url: https://docs.google.com/document/d/1pYLKfS8cYpoCvqB-4sPueP6mLl5Bz_pAeTcvH29RUmI/edit
+  description: '## BDC-RFC-16 NHLBI BioData Catalyst Data Definitions'
+- id: bdc-rfc-17
+  phase: rfc
+  status: open
+  title: 'BDC-RFC-17: NHLBI BioData Catalyst Ingest New Data Types'
+  url: https://docs.google.com/document/d/14TM-t5s7kbsiQc5lyycgIrn1TwjEiCVbNHI0w17xNLI/edit
+  description: '## BDC-RFC-17 NHLBI BioData Catalyst Ingest New Data Types'
+- id: bdc-rfc-18
+  phase: rfc
+  status: open
+  title: 'BDC-RFC-18: NHLBI BioData Catalyst Open Access Data'
+  url: https://docs.google.com/document/d/14F33wO8iJXRM-wkpJ9uQ-xlHm1OzcXgBBjBGvUvI5F4/edit
+  description: '## BDC-RFC-18 NHLBI BioData Catalyst Open Access Data'
+- id: bdc-rfc-19
+  phase: rfc
+  status: open
+  title: 'BDC-RFC-19: NHLBI BioData Catalyst Interop Search and Study Data Transfer'
+  url: https://docs.google.com/document/d/17JfT7fRLdTD20GBuEf17CEZTEui2abMr5YpIfYaIc28/edit
+  description: '## BDC-RFC-19 NHLBI BioData Catalyst Interop Search and Study Data Transfer'
+- id: bdc-rfc-20
+  phase: rfc
+  status: open
+  title: 'BDC-RFC-20: NHLBI BioData Catalyst ADRESS Interview Results'
+  url: https://docs.google.com/document/d/1BNMsf3337VB-GytQ94lii0JEI4ETHvAXUWebndV_YIA/edit
+  description: '## BDC-RFC-20 NHLBI BioData Catalyst ADRESS Interview Results'
+- id: bdc-rfc-21
+  phase: rfc
+  status: open
+  title: 'BDC-RFC-21: NHLBI BioData Catalyst Data Standards for Electrophysiology Assay Profiles'
+  url: https://docs.google.com/document/d/1GAw0XcXTEVw2No6On3ANE6eEiy_zNkmvdy0LdEDXB8s/edit
+  description: '## BDC-RFC-21 NHLBI BioData Catalyst Data Standards for Electrophysiology Assay Profiles'
+- id: bdc-rfc-22
+  phase: rfc
+  status: open
+  title: 'BDC-RFC-22: NHLBI BioData Catalyst Data Standards for Small Molecule Profiles'
+  url: https://docs.google.com/document/d/1qS6X4rFqn3ZBNGCstu4mH339-JkdP5IhxV4iRhQerrs/edit
+  description: '## BDC-RFC-22 NHLBI BioData Catalyst Data Standards for Small Molecule Profiles'
+- id: bdc-rfc-23
+  phase: rfc
+  status: open
+  title: 'BDC-RFC-23: NHLBI BioData Catalyst Data Standards for Nucleotide-Based Profiles'
+  url: https://docs.google.com/document/d/1tWWRUcVPOSA5F4iQuRehvAD3qTSizK4YfN-NM5AMNPA/edit
+  description: '## BDC-RFC-23 NHLBI BioData Catalyst Data Standards for Nucleotide-Based Profiles'
+- id: bdc-rfc-24
+  phase: rfc
+  status: open
+  title: 'BDC-RFC-24: NHLBI BioData Catalyst Data Standards for Clinical and Preclinical Data'
+  url: https://docs.google.com/document/d/1w6U1cnATIAHXp_UTn5EL6LRjijbL07Ez97K1uXrzUaM/edit
+  description: '## BDC-RFC-24 NHLBI BioData Catalyst Data Standards for Clinical and Preclinical Data'
+- id: bdc-rfc-25
+  phase: rfc
+  status: open
+  title: 'BDC-RFC-25: NHLBI BioData Catalyst Data Standards for Medical and Microscopy Imaging'
+  url: https://docs.google.com/document/d/1FCOi7L-bM2kXnqr3lHHJU-VMdEVn_YI-GIlvT5_O3H0/edit
+  description: '## BDC-RFC-25 NHLBI BioData Catalyst Data Standards for Medical and Microscopy Imaging'
+- id: bdc-rfc-26
+  phase: rfc
+  status: open
+  title: 'BDC-RFC-26: NHLBI BioData Catalyst Data Standards for Laboratory Assay Profiles'
+  url: https://docs.google.com/document/d/1p9D7MY0ONideUbIqWPMyzVVqmL_IEQy1isiqROFSUD4/edit
+  description: '## BDC-RFC-26 NHLBI BioData Catalyst Data Standards for Laboratory Assay Profiles'
+- id: bdc-rfc-28
+  phase: rfc
+  status: open
+  title: 'BDC-RFC-28: NHLBI BioData Catalyst Medical Image De-Identification Protocol'
+  url: https://docs.google.com/document/d/14-WfeMqgZz115DbBnFs-8AvcdRY1oIjCgi0K33pwMjE/edit?usp=sharing
+  description: '## BDC-RFC-28 NHLBI BioData Catalyst Medical Image De-Identification Protocol'
+- id: bdc-rfc-30
+  phase: rfc
+  status: open
+  title: 'BDC-RFC-30: NHLBI BioData Catalyst Social Determinants of Health (SDoH) Common Data Element Mapping'
+  url: https://docs.google.com/document/d/1jeVpbkJ0YrjarLaEC5ITxg1hHS4Nev1XfyP2K08ZTCc/edit?usp=sharing
+  description: '## BDC-RFC-30_NHLBI BioData Catalyst Social Determinants of Health (SDoH) Common Data Element Mapping'
+- id: bdc-rfc-32
+  phase: rfc
+  status: open
+  title: 'BDC-RFC-32: NHLBI BioData Catalyst SDoH Part II'
+  url: https://docs.google.com/document/d/1QFeOzEbA7k4nLcU6REkS6YvTvr-M1A-JyGIPL5om-V4/edit?usp=sharing
+  description: '## BDC-RFC-32_NHLBI BioData Catalyst SDoH Part II'
+- id: bdc-rfc-33
+  phase: rfc
+  status: open
+  title: 'BDC-RFC-33: NHLBI BioData Catalyst SDoH Part III'
+  url: https://docs.google.com/document/d/13Gq_J7XQV4OA6JmKMVPRU0hRAyqWJps--9S4NQJCpF8/edit?usp=sharing
+  description: '## BDC-RFC-33_NHLBI BioData Catalyst SDoH Part III'
