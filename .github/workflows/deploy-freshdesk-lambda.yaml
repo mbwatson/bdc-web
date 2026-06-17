@@ -1,0 +1,46 @@
+name: Deploy Freshdesk Lambda
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - services/freshdesk/**
+      - .github/workflows/deploy-freshdesk-lambda.yaml
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-freshdesk-lambda-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      FRESHDESK_AWS_REGION: ${{ vars.FRESHDESK_AWS_REGION }}
+      FRESHDESK_LAMBDA_FUNCTION_NAME: ${{ vars.FRESHDESK_LAMBDA_FUNCTION_NAME }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate deployment config
+        run: |
+          if [ -z "${FRESHDESK_LAMBDA_FUNCTION_NAME}" ]; then
+            echo "Missing repo variable FRESHDESK_LAMBDA_FUNCTION_NAME"
+            exit 1
+          fi
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.FRESHDESK_AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ vars.FRESHDESK_AWS_REGION || 'us-east-1' }}
+
+      - name: Package and deploy ZIP
+        run: |
+          python3 services/freshdesk/deploy_lambda.py \
+            --function-name "${FRESHDESK_LAMBDA_FUNCTION_NAME}" \
+            --region "${FRESHDESK_AWS_REGION:-us-east-1}" \
+            --publish

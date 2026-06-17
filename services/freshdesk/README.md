@@ -34,4 +34,33 @@ To route the site through the local proxy, set `FRESHDESK_PROXY_URL=http://local
 
 ## Deployment
 
-`handler.py` is deployed as-is to AWS Lambda. It has no dependencies beyond the Python standard library.
+Deployment is ZIP-based and uses `handler.py` as the Lambda entrypoint.
+
+### Build ZIP locally
+
+```bash
+python3 package_lambda.py
+```
+
+This writes `services/freshdesk/dist/freshdesk-proxy.zip`.
+
+### Deploy ZIP locally with AWS CLI
+
+```bash
+python3 deploy_lambda.py \
+  --function-name <your-lambda-function-name> \
+  --region us-east-1 \
+  --publish
+```
+
+The deploy script rebuilds the ZIP by default, uploads it with `aws lambda update-function-code`, and waits for the update to finish.
+
+### GitHub Actions deployment
+
+`.github/workflows/deploy-freshdesk-lambda.yaml` automatically deploys on pushes to `main` when files in `services/freshdesk/` change, and also supports manual runs via `workflow_dispatch`.
+
+Set these repository values before using the workflow:
+
+- Variable: `FRESHDESK_LAMBDA_FUNCTION_NAME`
+- Variable (optional): `FRESHDESK_AWS_REGION` (defaults to `us-east-1`)
+- Secret: `FRESHDESK_AWS_DEPLOY_ROLE_ARN` (OIDC-assumable role for Lambda deployment)
