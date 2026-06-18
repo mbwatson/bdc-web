@@ -49,6 +49,72 @@ jobs:
 
           rsync -av --delete "${SOURCE_DIR}/" "${DOCS_TARGET_PATH}/"
 
+          node <<'NODE'
+          const fs = require('node:fs');
+          const path = require('node:path');
+
+          const docsRoot = process.env.DOCS_TARGET_PATH;
+
+          const toTitleCase = (value) =>
+            value
+              .split(/\s+/)
+              .filter(Boolean)
+              .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+              .join(' ');
+
+          const walkFiles = (dir, out = []) => {
+            const entries = fs.readdirSync(dir, { withFileTypes: true });
+            for (const entry of entries) {
+              const fullPath = path.join(dir, entry.name);
+              if (entry.isDirectory()) {
+                walkFiles(fullPath, out);
+              } else if (/\.(md|mdx)$/i.test(entry.name)) {
+                out.push(fullPath);
+              }
+            }
+            return out;
+          };
+
+          const markdownFiles = walkFiles(docsRoot);
+          let renamedCount = 0;
+          let frontmatterCount = 0;
+
+          for (const filePath of markdownFiles) {
+            const fileName = path.basename(filePath).toLowerCase();
+            if (fileName !== 'readme.md' && fileName !== 'readme.mdx') continue;
+
+            const ext = path.extname(filePath);
+            const indexPath = path.join(path.dirname(filePath), `index${ext}`);
+            if (!fs.existsSync(indexPath)) {
+              fs.renameSync(filePath, indexPath);
+              renamedCount += 1;
+            }
+          }
+
+          const normalizedFiles = walkFiles(docsRoot);
+          const frontmatterRegex = /^---\s*\n[\s\S]*?\n---\s*(\n|$)/;
+
+          for (const filePath of normalizedFiles) {
+            const source = fs.readFileSync(filePath, 'utf8');
+            if (frontmatterRegex.test(source)) continue;
+
+            const headingMatch = source.match(/^#\s+(.+)$/m);
+            const rawName = path.basename(filePath, path.extname(filePath));
+            const fallback =
+              rawName.toLowerCase() === 'index'
+                ? path.basename(path.dirname(filePath))
+                : rawName;
+            const title = (headingMatch?.[1] || toTitleCase(fallback.replace(/[-_]+/g, ' '))).trim();
+
+            const frontmatter = `---\ntitle: ${JSON.stringify(title)}\n---\n\n`;
+            fs.writeFileSync(filePath, `${frontmatter}${source}`);
+            frontmatterCount += 1;
+          }
+
+          console.log(`Renamed ${renamedCount} README files to index.*`);
+          console.log(`Added frontmatter to ${frontmatterCount} markdown files`);
+          NODE
+
           if git diff --quiet -- "${DOCS_TARGET_PATH}"; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
