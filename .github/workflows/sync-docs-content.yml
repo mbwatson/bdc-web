@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       CONTENT_REPO: stagecc/bdc-gitbook
-      CONTENT_SOURCE_PATH: docs
+      CONTENT_SOURCE_PATH: .
       DOCS_TARGET_PATH: apps/docs/src/content/docs
     steps:
       - name: Checkout monorepo
@@ -40,7 +40,14 @@ jobs:
       - name: Sync content files
         id: sync
         run: |
-          rsync -av --delete ".tmp/content/${CONTENT_SOURCE_PATH}/" "${DOCS_TARGET_PATH}/"
+          SOURCE_DIR=".tmp/content/${CONTENT_SOURCE_PATH}"
+          if [ ! -d "$SOURCE_DIR" ]; then
+            echo "Expected content source path '$SOURCE_DIR' does not exist."
+            echo "Set CONTENT_SOURCE_PATH to the correct directory in ${CONTENT_REPO}."
+            exit 1
+          fi
+
+          rsync -av --delete "${SOURCE_DIR}/" "${DOCS_TARGET_PATH}/"
 
           if git diff --quiet -- "${DOCS_TARGET_PATH}"; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
