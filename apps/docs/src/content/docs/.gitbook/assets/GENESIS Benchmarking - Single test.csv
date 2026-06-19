@@ -1,0 +1,31 @@
+Samples,,Rel. Matrix,Parallel instances,Instance type,Spot/On Dem.,CPU,RAM,Time,Cost
+2.5k,,w/o,8,r4.8xlarge,Spot,1,2,"1 h, 8 min",$5
+2.5k,,Dense,8,r4.8xlarge,Spot,1,2,"1 h, 8 min",$5
+10k,,w/o,8,c5.18xlarge,On Demand,1,2,50 min,$10
+10k,,Sparse,8,c5.18xlarge,On Demand,1,2,58 min,$11
+10k,,Sparse,8,r4.8xlarge,On Demand,1,2,"1 h, 30 min",$11
+10k,,Dense,8,r5.4xlarge,On Demand,1,8,3 h,$24
+36k,,w/o,8,r5.4xlarge,On Demand,1,5,"3 h, 20 min",$27
+36k,,Sparse,8,r5.4xlarge,On Demand,1,5,4 h,$32
+36k,,Sparse,8,r5.12xlarge,On Demand,1,5,"1 h, 20 min",$32
+36k,,Dense,8,r5.12xlarge,On Demand,1,50,"1 d, 15 h",$930
+36k,,Dense,8,r5.24xlarge,On Demand,1,50,17 h,$800
+50k,,w/o,8,r5.12xlarge,On Demand,1,8,2 h,$44
+50k,,Sparse,8,r5.12xlarge,On Demand,1,8,2 h,$48
+50k,,Dense,8,r5.24xlarge,On Demand,48,100,11 d,"$13,500"
+2.5k,,w/o,8,n1-standard-64,Preemptible,1,2,1 h,$7
+2.5k,,Dense,8,n1-standard-64,Preemptible,1,2,1 h,$7
+10k,,w/o,8,n1-standard-4,On Demand,1,2,"1 h, 12 min",$13
+10k,,Sparse,8,n1-standard-4,On Demand,1,2,"1 h, 13 min",$14
+10k,,Dense,8,n1-highmem-32,On Demand,1,8,"2 h, 20 min",$30
+36k,,w/o,8,n1-standard-64,On Demand,1,5,"1 h, 30 min",$35
+36k,,Sparse,8,n1-highmem-16,On Demand,1,5,"4 h, 30 min",$35
+36k,,Sparse,8,n1-standard-64,On Demand,1,5,"1 h, 30 min",$35
+36k,,Dense,8,n1-highmem-96,On Demand,1,50,"1 d, 6 h","$1,300"
+50k,,w/o,8,n1-standard-96,On Demand,1,8,2 h,$73
+50k,,Sparse,8,n1-standard-96,On Demand,1,8,2 h,$73
+50k,,Dense,8,n1-highmem-96,On Demand,16,100,6 d,"$6,600"
+,,,,,,,,,
+In tests performed we used 1000G (tasks with 2.5k participants) and TOPMed freeze5 datasets (tasks with 10k or more participants). All these tests are done with applied MAF >= 1% filter. The number of variants that have been tested is 14 mio in 1000G and 12 mio in TOPMed freeze 5 dataset.,,,,,,,,,
+,,,,,,,,,
+"Also, a common filter in these analysis is MAC>=5. In that case the number of variants would be 32 mio for 1000G and 92 mio for TOPMed freeze5 data. Since for single variant testing, the compute time grows linearly with the number of variants tested the execution time and price can be easily estimated from the results above.",,,,,,,,,

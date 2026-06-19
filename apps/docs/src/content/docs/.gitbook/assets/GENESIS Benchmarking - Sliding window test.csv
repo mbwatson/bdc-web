@@ -1,0 +1,77 @@
+Samples,Rel. matrix,Test,Parallel instances,Instance type,Instance,CPU,RAM (GB),Time,Cost
+10K,w/o,Burden,8,On Dm,c5.9xlarge,1,5,"4 h, 30 min",$50
+10K,Sparse,Burden,8,On Dm,c5.9xlarge,1,5,"4 h, 30min",$50
+10K,Dense,Burden,8,On Dm,c5.9xlarge,1,5,"4 h, 30 min",$50
+36K,w/o,Burden,8,On Dm,c5.9xlarge,1,5,"9 h, 15 min",$115
+36K,Sparse,Burden,8,On Dm,c5.9xlarge,1,5,"9 h, 15 min",$115
+36K,Dense,Burden,8,On Dm,r5.12xlarge,1,50,1 d,$500
+50K,w/o,Burden,8,On Dm,c5.9xlarge,1,20,"2 d, 5 h",$650
+50K,Sparse,Burden,8,On Dm,c5.9xlarge,1,20,"2 d, 5 h",$650
+50K,Dense,Burden,8,On Dm,r5.12xlarge,1,100,2 d,"$1,400"
+10K,w/o,SKAT,8,On Dm,c5.9xlarge,12,5,20 h,$250
+10K,Sparse,SKAT,8,On Dm,c5.9xlarge,12,5,20 h,$250
+10K,Dense,SKAT,8,On Dm,c5.9xlarge,12,5,20 h,$250
+36K,w/o,SKAT,8,On Dm,c5.9xlarge,12,5,5 d,"$1,400"
+36K,Sparse,SKAT,8,On Dm,c5.9xlarge,12,5,5 d,"$1,400"
+36K,Dense,SKAT,8,On Dm,r5.12xlarge,1,50,11 d,"$6,300"
+50K,w/o,SKAT,8,On Dm,c5.9xlarge,36,72,12 d,"$3,300"
+50K,Sparse,SKAT,8,On Dm,c5.9xlarge,36,72,12 d,"$3,300"
+50K,Dense,SKAT,8,On Dm,r5.12xlarge,6,100,8 d,"$4,700"
+10K,w/o,SMMAT,8,On Dm,c5.9xlarge,12,5,20 h,$250
+10K,Sparse,SMMAT,8,On Dm,c5.9xlarge,12,5,20 h,$250
+10K,Dense,SMMAT,8,On Dm,c5.9xlarge,12,5,20 h,$250
+36K,w/o,SMMAT,8,On Dm,c5.9xlarge,12,5,5 d,"$1,100"
+36K,Sparse,SMMAT,8,On Dm,c5.9xlarge,12,5,5 d,"$1,100"
+36K,Dense,SMMAT,8,On Dm,r5.12xlarge,1,50,11 d,"$6,300"
+50K,w/o,SMMAT,8,On Dm,c5.9xlarge,36,72,13 d,"$4,000"
+50K,Sparse,SMMAT,8,On Dm,c5.9xlarge,36,72,13 d,"$4,000"
+50K,Dense,SMMAT,8,On Dm,r5.12xlarge,6,100,7 d,"$4,000"
+10K,w/o,Fast-SKAT,8,On Dm,c5.9xlarge,5,5,14 h,$110
+10K,Sparse,Fast-SKAT,8,On Dm,c5.9xlarge,5,5,14 h,$110
+10K,Dense,Fast-SKAT,8,On Dm,c5.9xlarge,12,10,20 h,$240
+36K,w/o,Fast-SKAT,8,On Dm,c5.9xlarge,18,36,"3 d, 12 h","$1,050"
+36K,Sparse,Fast-SKAT,8,On Dm,c5.9xlarge,18,36,"3 d, 12 h","$1,050"
+36K,Dense,Fast-SKAT,8,On Dm,r5.12xlarge,1,50,2 d,"$1,000"
+50K,w/o,Fast-SKAT,8,On Dm,r5.12xlarge,18,36,4 d,"$2,600"
+50K,Sparse,Fast-SKAT,8,On Dm,r5.12xlarge,18,36,"4 d, 12 h","$2,600"
+50K,Dense,Fast-SKAT,8,On Dm,r5.12xlarge,1,186,12 d,"$7,000"
+10K,w/o,Burden,8,On Dm,n1-standard-32,1,5,3 h,$40
+10K,Sparse,Burden,8,On Dm,n1-standard-32,1,5,3 h,$40
+10K,Dense,Burden,8,On Dm,n1-standard-32,1,5,3 h,$40
+36K,w/o,Burden,8,On Dm,n1-standard-32,1,5,7 h,$100
+36K,Sparse,Burden,8,On Dm,n1-standard-32,1,5,8 h,$110
+36K,Dense,Burden,8,On Dm,n1-standard-96,1,50,"1 d, 6 h",$100
+50K,w/o,Burden,8,On Dm,n1-standard-32,1,20,2 d,$500
+50K,Sparse,Burden,8,On Dm,n1-standard-32,1,20,2 d,$500
+50K,Dense,Burden,8,On Dm,n1-standard-96,1,100,3 d,"$2,600"
+10K,w/o,SKAT,8,On Dm,n1-standard-32,12,5,"1 d, 12 h",$400
+10K,Sparse,SKAT,8,On Dm,n1-standard-32,12,5,"1 d, 12 h",$400
+10K,Dense,SKAT,8,On Dm,n1-standard-32,12,5,"1 d, 12 h",$400
+36K,w/o,SKAT,8,On Dm,n1-standard-32,12,5,5 d,"$1,400"
+36K,Sparse,SKAT,8,On Dm,n1-standard-32,12,5,5 d,"$1,400"
+36K,Dense,SKAT,8,On Dm,n1-standard-96,1,50,6 d,"$5,100"
+50K,w/o,SKAT,8,On Dm,n1-standard-64,36,72,14 d,"$8,000"
+50K,Sparse,SKAT,8,On Dm,n1-standard-32,18,36,15 d,"$4,500"
+50K,Dense,SKAT,8,On Dm,n1-standard-96,6,100,9 d,"$8,300"
+10K,w/o,SMMAT,8,On Dm,n1-standard-32,12,5,2 d,$560
+10K,Sparse,SMMAT,8,On Dm,n1-standard-32,12,5,2 d,$560
+10K,Dense,SMMAT,8,On Dm,n1-standard-32,12,5,2 d,$560
+36K,w/o,SMMAT,8,On Dm,n1-standard-32,12,5,5 d,"$1,400"
+36K,Sparse,SMMAT,8,On Dm,n1-standard-32,12,5,5 d,"$1,400"
+36K,Dense,SMMAT,8,On Dm,n1-standard-96,1,50,6 d,"$5,100"
+50K,w/o,SMMAT,8,On Dm,n1-standard-64,36,72,14 d,"$8,000"
+50K,Sparse,SMMAT,8,On Dm,n1-standard-32,18,36,17 d,"$5,000"
+50K,Dense,SMMAT,8,On Dm,n1-standard-96,6,100,13 d,"$11,500"
+10K,w/o,Fast-SKAT,8,On Dm,n1-standard-32,5,5,16 h,$200
+10K,Sparse,Fast-SKAT,8,On Dm,n1-standard-32,5,5,16 h,$200
+10K,Dense,Fast-SKAT,8,On Dm,n1-standard-32,12,5,2 d,$560
+36K,w/o,Fast-SKAT,8,On Dm,n1-standard-32,18,36,8 d,"$2,400"
+36K,Sparse,Fast-SKAT,8,On Dm,n1-standard-32,12,5,8 d,"$2,400"
+36K,Dense,Fast-SKAT,8,On Dm,n1-standard-96,1,50,"2 d, 12 h","$2,100"
+50K,w/o,Fast-SKAT,8,On Dm,n1-standard-96,1,100,5 d,"$4,700"
+50K,Sparse,Fast-SKAT,8,On Dm,n1-standard-96,1,100,5 d,"$4,700"
+50K,Dense,Fast-SKAT,8,On Dm,n1-standard-96,1,100,30 d,"$26,300"
+,,,,,,,,,
+"In tests performed we used 1000G (tasks with 2.5k participants) and TOPMed freeze5 datasets (tasks with 10k or more participants). All these tests are done with applied MAF < 1% filter, window size 50kb and window step 20kb. The number of variants that have been tested in 1000G dataset is 175 mio (140k windows, 1k variants/window). The number of variants tested in TOPMed freeze 5 is 1bio variants (140k windows, 7k variants/window).",,,,,,,,,
+,,,,,,,,,
+Please note that we run all tests with default values for window size and window step (meaning 50kb and 20kb respectively). In this set up windows are overlapping and this is why we have so high number of variants tested.,,,,,,,,,
