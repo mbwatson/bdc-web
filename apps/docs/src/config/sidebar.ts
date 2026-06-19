@@ -5,6 +5,6 @@ type Sidebar = NonNullable<StarlightUserConfig['sidebar']>;
 export const sidebar: Sidebar = [
   {
     label: 'Documentation',
-    autogenerate: { directory: '.' },
+    autogenerate: { directory: '' },
   },
 ];
