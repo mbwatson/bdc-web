@@ -2,7 +2,6 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import starlight from '@astrojs/starlight';
 import { defineConfig } from 'astro/config';
-import { sidebar } from './src/config/sidebar.ts';
 
 const rootDir = dirname(fileURLToPath(import.meta.url));
 const uswdsPackages = join(rootDir, '../../node_modules/@uswds/uswds/packages');
@@ -26,7 +25,6 @@ export default defineConfig({
         },
       ],
       customCss: ['./src/styles/custom.scss'],
-      sidebar,
     }),
   ],
   vite: {
