@@ -77,7 +77,18 @@ jobs:
 
           const markdownFiles = walkFiles(docsRoot);
           let renamedCount = 0;
-          let frontmatterCount = 0;
+          let frontmatterAddedCount = 0;
+          let titleBackfilledCount = 0;
+
+          const inferTitle = (filePath, source) => {
+            const headingMatch = source.match(/^#\s+(.+)$/m);
+            const rawName = path.basename(filePath, path.extname(filePath));
+            const fallback =
+              rawName.toLowerCase() === 'index'
+                ? path.basename(path.dirname(filePath))
+                : rawName;
+            return (headingMatch?.[1] || toTitleCase(fallback.replace(/[-_]+/g, ' '))).trim();
+          };
 
           for (const filePath of markdownFiles) {
             const fileName = path.basename(filePath).toLowerCase();
@@ -92,27 +103,36 @@ jobs:
           }
 
           const normalizedFiles = walkFiles(docsRoot);
-          const frontmatterRegex = /^---\s*\n[\s\S]*?\n---\s*(\n|$)/;
+          const frontmatterRegex = /^---\s*\n([\s\S]*?)\n---\s*(\n|$)/;
 
           for (const filePath of normalizedFiles) {
             const source = fs.readFileSync(filePath, 'utf8');
-            if (frontmatterRegex.test(source)) continue;
+            const frontmatterMatch = source.match(frontmatterRegex);
+            const title = inferTitle(filePath, source);
 
-            const headingMatch = source.match(/^#\s+(.+)$/m);
-            const rawName = path.basename(filePath, path.extname(filePath));
-            const fallback =
-              rawName.toLowerCase() === 'index'
-                ? path.basename(path.dirname(filePath))
-                : rawName;
-            const title = (headingMatch?.[1] || toTitleCase(fallback.replace(/[-_]+/g, ' '))).trim();
+            if (!frontmatterMatch) {
+              const frontmatter = `---\ntitle: ${JSON.stringify(title)}\n---\n\n`;
+              fs.writeFileSync(filePath, `${frontmatter}${source}`);
+              frontmatterAddedCount += 1;
+              continue;
+            }
 
-            const frontmatter = `---\ntitle: ${JSON.stringify(title)}\n---\n\n`;
-            fs.writeFileSync(filePath, `${frontmatter}${source}`);
-            frontmatterCount += 1;
+            const existingFrontmatter = frontmatterMatch[1] || '';
+            if (/(^|\n)title\s*:/.test(existingFrontmatter)) continue;
+
+            const existingBody = source.slice(frontmatterMatch[0].length);
+            const normalizedFrontmatter = existingFrontmatter.trimEnd();
+            const updatedFrontmatter = normalizedFrontmatter
+              ? `${normalizedFrontmatter}\ntitle: ${JSON.stringify(title)}`
+              : `title: ${JSON.stringify(title)}`;
+
+            fs.writeFileSync(filePath, `---\n${updatedFrontmatter}\n---\n\n${existingBody}`);
+            titleBackfilledCount += 1;
           }
 
           console.log(`Renamed ${renamedCount} README files to index.*`);
-          console.log(`Added frontmatter to ${frontmatterCount} markdown files`);
+          console.log(`Added frontmatter to ${frontmatterAddedCount} markdown files`);
+          console.log(`Backfilled missing title in ${titleBackfilledCount} markdown files`);
           NODE
 
           if git diff --quiet -- "${DOCS_TARGET_PATH}"; then
