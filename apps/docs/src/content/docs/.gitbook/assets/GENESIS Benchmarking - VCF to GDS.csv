@@ -1,0 +1,20 @@
+Sample Count,Input,,Check GDS,Instance type,Spot/On Dem.,CPU,RAM,Time,Cost
+2.5k samples,vcf.gz,,Yes,c5.18.xlarge,Spot,1,4,"1 h, 16 min",$5
+2.5k samples,vcf.gz,,No,c5.18.xlarge,Spot,1,4,34 min,$1
+10k samples,vcf.gz,,Yes,c5.9xlarge,On Demand,1,4,"1 d, 4 h",$170
+10k samples,vcf.gz,,No,c5.18xlarge,Spot,1,4,"5 h, 50 min",$8
+36k samples,vcf.gz,,Yes,c4.8xlarge,On Demand,1,4,5 d,$730
+36k samples,vcf.gz,,Yes,c5.9xlarge,On Demand,1,4,5 d,$460
+36k samples,vcf.gz,,No,c5.9xlarge,On Demand,1,4,17 h,$45
+36k samples,vcf.gz,,No,m5.4xlarge,On Demand,1,4,"1 d, 3h",$43
+50k samples,vcf.gz,,Yes,c4.8xlarge,On Demand,1,4,6 d,"$1,150"
+50k samples,vcf.gz,,Yes,c5.9xlarge,On Demand,1,4,5 d,$725
+50k samples,vcf.gz,,No,c5.9xlarge,On Demand,1,4,"1 d, 7 h",$77
+50k samples,bcf,,No,c5.18xlarge,On Demand,1,4,"1 d, 11 h",$110
+2.5k samples,vcf.gz,,Yes,n1-standard-64,Preemptible,1,4,"1 h, 30 min",$7
+2.5k samples,vcf.gz,,No,n1-highmem-32,Preemptible,1,4,47 min,$1
+10k samples,vcf.gz,,Yes,n1-standard-16,On Demand,1,4,"1 d, 16 h",$130
+10k samples,vcf.gz,,No,n1-highmem-32,Preemptible,1,4,8 h,$5
+36k samples,vcf.gz,,No,n1-standard-16,On Demand,1,4,"1 d, 9h",$45
+50k samples,vcf.gz,,No,n1-standard-16,On Demand,1,4,"2 d, 7 h",$75
+50k samples,bcf,,No,n1-standard-64,On Demand,1,4,"2 d, 7 h",$180

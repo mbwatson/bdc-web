@@ -1,0 +1,15 @@
+---
+title: "Appendix 1: BDC Identifiers - dbGaP, TOPMed, and PIC-SURE"
+---
+
+# Appendix 1: BDC Identifiers - dbGaP, TOPMed, and PIC-SURE
+
+## Table of BioData Catalyst dbGaP/TOPMed Identifiers
+
+<table><thead><tr><th width="248.5">Identifiers</th><th>Definition</th></tr></thead><tbody><tr><td>Patient ID</td><td>This is the HPDS Patient num. This is PIC-SURE HPDS’s internal Identifier.</td></tr><tr><td>Topmed / Parent Study Accession with Subject ID</td><td>These are the identifiers used by each in the team in the consortium to link data.<br>Values must follow this mask:<br>&#x3C;STUDY_ACCESSION_NUMBER>._&#x3C;SUBJECT_ID><br>Eg: phs000007.v30_XXXXXXX</td></tr><tr><td>DBGAP_SUBJECT_ID</td><td>This is a generated id that is unique to each patient in a study.<br>Controlled by dbGaP.<br>It is not unique across unrelated studies. However Patients can be linked across studies. See SOURCE_SUBJECT_ID.<br>However a patient will be assigned the same across related studies. For dbGaP to assign the same dbGaP subject ID, include the two variables, SUBJECT_SOURCE and SOURCE_SUBJECT_ID.<br>This identifier is used in all the phenotypic data files and is what we sequence to a HPDS Patient Num ( Patient ID ). All sequenced identifiers are stored in a PatientMapping file and stored in s3. These mappings allow HPDS data to be correlated back to the raw data sets.</td></tr><tr><td>SUBJECT_ID</td><td>This is a generated id that is unique to each patient in a study.<br>Controlled by the submitter of a study.<br>For FHS this is replaced with shareid for phs000007. For phs000974 It uses SUBJECT_ID. The values for these two columns are the same however.</td></tr><tr><td>SHARE_ID</td><td>For FHS phs000007 this was used instead of SUBJECT_ID, but not for FHS phs000974</td></tr><tr><td>SOURCE_SUBJECT_ID</td><td>This is used internally by dbGaP in conjunction with SUBJECT_SOURCE to allow submitters to associate subjects across studies.</td></tr><tr><td>SAMPLE_ID</td><td>De-identified sample identifier.<br>These are the ids that link to the molecular data in dbGaP (vcfs, etc.).</td></tr></tbody></table>
+
+## Table of PIC-SURE Identifiers
+
+| Concept Path                                               | Identifier                                                                                                                                                                                                                                                |
+| ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Patient ID (not a concept path but exists in data exports) | <p>This is PIC-SURE’s internal Identifier. It is commonly referred to as HPDS Patient num.</p><p><br>This identifier is generated and assigned to subjects when they are loaded. It is not meant for data correlation between different data sources.</p> |
