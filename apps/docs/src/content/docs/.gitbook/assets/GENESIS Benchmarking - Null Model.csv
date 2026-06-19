@@ -1,0 +1,25 @@
+Samples,Relatedness matrix,Instance type,Instance,Time
+2.5K,w/o,Spot,c4xlarge,5 min
+10K,w/o,Spot,r4.8xlarge,6 min
+36K,w/o,Spot,r4.8xlarge,7 min
+50K,w/o,Spot,r4.8xlarge,7 min
+2.5K,Sparse,Spot,c4xlarge,5 min
+10K,Sparse,Spot,r4.8xlarge,8 min
+36K,Sparse,Spot,r4.8xlarge,40 min
+50K,Sparse,Spot,r4.8xlarge,50 min
+2.5K,Dense,Spot,c4.xlarge,5 min
+10K,Dense,Spot,c4.2xlarge,13 min
+36K,Dense,Spot,r4.4xlarge,55 min
+50K,Dense,Spot,r4.8xlarge,2 h
+2.5K,w/o,Preemtible,n1-standard-4,5 min
+10K,w/o,Preemtible,n1-standard-32,6 min
+36K,w/o,Preemtible,n1-hihgmem-32,8 min
+50K,w/o,Preemtible,n1-hihgmem-32,7 min
+2.5K,Sparse,Preemtible,n1-standard-4,5 min
+10K,Sparse,Preemtible,n1-hihgmem-32,7 min
+36K,Sparse,Preemtible,n1-hihgmem-32,40 min
+50K,Sparse,Preemtible,n1-hihgmem-32,50 min
+2.5K,Dense,Preemtible,n1-highcpu-8,10 min
+10K,Dense,Preemtible,n1-highcpu-16,12 min
+36K,Dense,Preemtible,n1-standard-32,43 min
+50K,Dense,Preemtible,n1-standard-96,"2 h, 30 min"
