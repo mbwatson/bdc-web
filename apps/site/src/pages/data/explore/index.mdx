@@ -1,8 +1,18 @@
 ---
 title: Explore BDC Data
-layout: ../../../layouts/Page.astro
+layout: ../../../layouts/MdxBase.astro
 ---
 import Button from '@bdc/ui-astro/button/Button.astro'
+import Hero from '@bdc/ui-astro/layout/Hero.astro'
+import InPageNav from '@components/layout/InPageNav.astro'
+
+<Hero
+  title="Explore BDC Data"
+/>
+
+<section class="usa-section padding-top-4">
+  <div class="grid-container">
+    <InPageNav>
 
 ## About Data in BDC
 
@@ -19,14 +29,13 @@ The following links lead to search capabilities to discover the data available i
   <div class="grid-col-12 tablet:grid-col-4">
     <Button variant="secondary" href="https://gen3.biodatacatalyst.nhlbi.nih.gov/discovery" class="width-full">Keywords in Study Names or Descriptions</Button>
   </div>
-    <div class="grid-col-12 tablet:grid-col-4 margin-top-2 tablet:margin-top-0">
-    <Button variant="secondary" href="/use-bdc/explore-data/dug" class="width-full">Disease, Phenotype, Biological Process, or Anatomical Entity</Button>
+  <div class="grid-col-12 tablet:grid-col-4 margin-top-2 tablet:margin-top-0">
+    <Button variant="secondary" href="/data/explore/dug" class="width-full">Disease, Phenotype, Biological Process, or Anatomical Entity</Button>
   </div>
-    <div class="grid-col-12 tablet:grid-col-4 margin-top-2 tablet:margin-top-0" >
+  <div class="grid-col-12 tablet:grid-col-4 margin-top-2 tablet:margin-top-0" >
     <Button variant="secondary" href="https://picsure.biodatacatalyst.nhlbi.nih.gov/discover" class="width-full">Phenotypes</Button>
   </div>
 </div>
-index.mdx
 
 All three of the above searches provide Study Accession IDs - unique, stable, and   versioned identifiers.
 
@@ -76,3 +85,7 @@ Use the button below to sign in and verify your current data access approvals.
 <Button variant="secondary" centered href="https://gen3.biodatacatalyst.nhlbi.nih.gov/user/oauth2/authorize?idp=ras&client_id=xMhuXjGdk9zpzdJjufEinh3nKzOUKOTFZcwzU5xT&response_type=id_token+token&scope=openid+user&nonce=2bfe151af238d21f48d8a8bf8bbec408838c8dc0ace6b4c5621ac9dfa157798b&redirect_uri=https://biodatacatalyst.nhlbi.nih.gov/use-bdc/explore-data/">Check My Access</Button>
   
 Researchers who do not have approved DARs for the controlled data they want to use should [read the dbGaP section of the Understanding Access page](https://bdcatalyst.gitbook.io/biodata-catalyst-documentation/written-documentation/data-access/understanding-access-requirements-for-biodata-catalyst#dbgap) and [Submitting a dbGaP Data Access Request](https://bdcatalyst.gitbook.io/biodata-catalyst-documentation/written-documentation/data-access/submitting-a-dbgap-data-access-request) in BDC's   documentation.
+
+    </InPageNav>
+  </div>
+</section>
