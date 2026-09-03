@@ -85,7 +85,7 @@ const lifecycleSteps = [
     icon: 'search',
     title: 'Explore data',
     description:
-      'Search richly characterized NHLBI studies, and explore available variables and datasets before signing in.',
+      'Search NHLBI studies and explore available variables and datasets before signing in.',
     action: {
       label: 'Explore data',
       path: '/data/explore',
@@ -170,7 +170,7 @@ const nextEvent = events[0];
         <div class="tablet:grid-col-4 border-top-1px border-accent-cool padding-top-4">
           <h3 class="font-heading-lg margin-top-0">Build on decades of NHLBI research</h3>
           <p class="margin-bottom-0 line-height-sans-4">
-            Access richly characterized data from longstanding NHLBI studies and programs.
+            Access well-characterized data from longstanding NHLBI studies and programs.
           </p>
         </div>
         <div class="tablet:grid-col-4 border-top-1px border-accent-cool padding-top-4">
@@ -211,12 +211,12 @@ const nextEvent = events[0];
     >
       <Fragment slot="description">
         <p>
-          BDC helps researchers move from finding a relevant study to asking questions
-          across multiple datasets. Explore richly characterized NHLBI data,
-          identify studies or cohorts that fit your research question, and
-          move directly into secure cloud environments
+          BDC helps researchers move from finding a relevant study
+          to asking questions across multiple datasets.
+          Explore NHLBI data, identify studies or cohorts
+          that fit your research question,
+          and move directly into secure cloud environments
           where data can be analyzed individually or together.
-
         </p>
         <p>
           BDC supports the research process from data discovery and access
@@ -266,13 +266,15 @@ const nextEvent = events[0];
     </PageSection>
 
     <PageSection
-      eyebrow="Featured Communities"
+      eyebrow="Featured Datasets"
       title="Explore NHLBI Data for Analysis"
-      action={{ label: 'View all communities', href: '/about/research-communities' }}
+      action={{ label: 'View all datasets', href: '/about/research-communities' }}
       tone="default"
     >
       <p slot="description">
-        Discover richly characterized datasets from NHLBI-supported studies and programs, including resources that can be used together to investigate questions across populations, phenotypes, and molecular data.
+        Discover data from NHLBI-supported studies and programs,
+        including resources that can be used together
+        to investigate questions across populations, phenotypes, and molecular data.
       </p>
       <div class="grid-row grid-gap-3 margin-bottom-neg-3">
         {featuredCommunities.map((program, index) => (
@@ -289,8 +291,8 @@ const nextEvent = events[0];
         ))}
       </div>
 
-      <p class="margin-y-2 display-flex flex-justify-center">
-        <Link class="text-bold" to="/about/studies">Explore data from all Research Communities</Link>
+      <p class="margin-top-4 margin-bottom-2 display-flex flex-justify-center">
+        <Link class="text-bold" to="/about/studies">Explore all BDC data</Link>
       </p>
     </PageSection>
 
@@ -337,7 +339,7 @@ const nextEvent = events[0];
       <div class="display-flex flex-justify-center flex-align-center margin-top-2 margin-bottom-0">
         <IconBadge icon="attach_money" tone="cool" class="margin-right-1" />
         <span>
-          Funding may be available for Funding may be available for courses and training.
+          Funding may be available for courses and training.
           <Link to="/help/costs" class="text-bold">Learn more</Link>.
         </span>
       </div>
