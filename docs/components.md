@@ -6,13 +6,24 @@
 
 # Component Guidelines
 
+## Scope
+
+This document defines implementation architecture for components (Astro vs React, dependency boundaries, and utility-first styling).
+
+Behavior and anatomy standards for specific component families live in `docs/components/`.
+
+In this monorepo:
+
+- App-specific components live in `apps/<app>/src/components/`
+- Shared primitives live in `packages/ui-astro/src/` and `packages/ui-react/src/`
+
 ## Default: Astro Components
 
-Location:
+Location (app-specific):
 
 ```
 
-src/components/
+apps/<app>/src/components/
 
 ```
 
@@ -46,7 +57,10 @@ Location:
 
 ```
 
-src/components/
+packages/ui-react/src/
+
+# App-level React components, when needed:
+apps/<app>/src/components/
 
 ```
 
@@ -89,7 +103,7 @@ Before creating any component:
 
 ---
 
-## Styling Rules
+## Styling Rules (Implementation)
 
 - Prefer USWDS utility classes first (`margin-*`, `padding-*`, `text-*`, `line-height-*`, `text-ls-*`, `border-*`, `shadow-*`, `display-*`, `flex-*`, `grid-*`)
 - Avoid global CSS
@@ -119,6 +133,3 @@ Common conversions:
 PR review check:
 
 - "Did we use USWDS utilities where available before adding custom CSS?"
-
-
-This becomes your guardrail document for PR reviews.
