@@ -23,6 +23,7 @@ Every reusable component must satisfy all applicable checks before merge.
 - Uses one primary action maximum per local action cluster
 - Avoids mixing unrelated content roles in one visual block
 - Uses approved typography roles and spacing scale
+- Documents any allowed exceptions at the component-family level
 
 ### Content and UX quality
 
