@@ -24,8 +24,8 @@ Heroes establish page intent quickly, orient users, and present the page's top-p
 
 - Use one primary CTA maximum in the hero
 - CTA is optional; include it only when a clear top-priority task exists
-- Hero visual supports context only and must not carry essential prose
-- Keep hierarchy predictable: eyebrow (optional) -> title -> description -> action
+- Hero visual may include supporting callout content but must not carry primary narrative copy required to understand the page
+- Keep hierarchy predictable: eyebrow -> title -> description -> action
 - Avoid stacking unrelated messages in the hero region
 
 ## Content rules
@@ -41,6 +41,12 @@ Suggested length guidance:
 - Eyebrow: short context label (about 2-6 words)
 - Title: concise purpose statement (about 3-10 words)
 - Description: brief supporting guidance (about 1-3 sentences)
+
+## Exceptions and alternatives
+
+- If a page cannot provide eyebrow, title, and description, do not use the Hero component.
+- Use a simpler page-intro pattern (for example, section heading plus introductory paragraph) for compact or transactional pages.
+- Any Hero exception should be documented in the page implementation notes or PR description.
 
 ## Visual and layout rules
 
