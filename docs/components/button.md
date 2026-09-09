@@ -6,7 +6,13 @@
 
 ## Purpose
 
-Buttons trigger in-place actions. Links handle navigation.
+Buttons communicate action priority and trigger user actions.
+
+Semantic rule:
+
+- Use native `<button>` for in-place behavior (submit, toggle, open/close, confirm)
+- Use `<a>` for navigation destinations (including high-emphasis CTA links styled as buttons)
+- Use inline text links for prose/body-copy navigation
 
 ## Acceptable use cases by variant
 
@@ -16,12 +22,26 @@ Buttons trigger in-place actions. Links handle navigation.
 - Destructive: irreversible or high-risk action only
 - Icon-only: common actions only (search, close, overflow), with required accessible label
 
+## Variant mapping for current UI APIs
+
+Use this map when implementing with existing USWDS-oriented variants:
+
+- Primary (filled): `default`, `accent-warm`, `accent-cool`
+- Secondary (outline/quiet): `secondary`, `outline`
+- Inverse contexts only: `inverse`, `outline-inverse`
+- Low-emphasis/supporting: `base`, `unstyled`
+
+Notes:
+
+- Choose one primary tone per action cluster; avoid mixing multiple filled tones as competing primaries.
+- `destructive` should be added as an explicit approved variant when introduced in shared packages.
+
 ## Rules
 
 - Use one primary button maximum per local action cluster
 - Do not place competing primary buttons side-by-side
 - Do not use button styling for decoration
-- Do not use buttons for simple navigation in prose content
+- Do not use button styling for simple navigation in prose content
 - Do not disable without communicating why an action is unavailable
 
 ## Labeling and copy
@@ -39,6 +59,10 @@ Buttons trigger in-place actions. Links handle navigation.
 - Minimum touch target: 44x44 px equivalent
 - In forms/modals, keep action hierarchy predictable and consistent
 - Whole-card click patterns must not conflict with nested buttons
+
+Allowed exception:
+
+- A high-emphasis navigation CTA may be rendered as a link-styled button when emphasis is intentional and hierarchy is clear.
 
 ## Required states
 
