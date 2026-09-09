@@ -10,9 +10,15 @@ Cards group related content into scannable, repeatable units that help users com
 
 ## Required anatomy
 
-- Required: title
+- Required: a primary identifying element for the card family
 - Optional: eyebrow, description, metadata, media, CTA
 - Prohibited: unrelated controls that conflict with card's primary destination
+
+Primary identifying element guidance:
+
+- Preferred default: title
+- Allowed approved alternatives: quote lead (testimonial), metric value + qualifier (stat card)
+- Each card family must document which identifying element it uses
 
 ## Acceptable use cases
 
@@ -22,7 +28,7 @@ Cards group related content into scannable, repeatable units that help users com
 
 ## Rules
 
-- Title is the primary affordance; metadata must not visually overpower it
+- The primary identifying element is the primary affordance; metadata must not visually overpower it
 - Typography, spacing, and color follow shared roles/tokens only
 - Keep card purpose singular (one content type per card pattern)
 - Use one primary action maximum per card
@@ -30,10 +36,18 @@ Cards group related content into scannable, repeatable units that help users com
 
 ## Content rules
 
-- Titles are specific and concise; avoid decorative phrasing
+- Titles (when used) are specific and concise; avoid decorative phrasing
 - Description is summary text, not full-body prose
 - Metadata order is stable within a card family (for example: date -> source -> tag)
 - CTA copy is verb-led and destination-specific
+
+## Card family registry
+
+- Standard content cards: title required
+- Testimonial cards: quote lead + person identity may satisfy identifying element
+- Stat cards: metric value + qualifier may satisfy identifying element
+
+If a new family needs different anatomy, document it here before rollout.
 
 ## Media rules
 
