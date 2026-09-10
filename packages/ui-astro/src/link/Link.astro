@@ -2,16 +2,52 @@
 interface Props extends astroHTML.JSX.AnchorHTMLAttributes {
   to: string;
   inheritColor?: boolean;
+  exitNotice?: 'auto' | 'always' | 'never';
 }
 
 const {
   to,
   inheritColor = false,
+  exitNotice = 'auto',
+  rel,
+  target,
+  'data-requires-exit-notice': exitNoticeDataAttribute,
   class: className,
   className: classNameProp,
   ...rest
-} = Astro.props;
+} = Astro.props as Props & { 'data-requires-exit-notice'?: string };
+
+// Keep this URL classification logic aligned with `../button/Button.astro`.
+// If one changes, the other should usually change too.
+const HTTP_PROTOCOLS = new Set(['http:', 'https:']);
+
+const isGovHostname = (hostname: string): boolean => {
+  const normalized = hostname.toLowerCase().replace(/\.+$/, '');
+  return normalized === 'gov' || normalized.endsWith('.gov');
+};
+
+const requiresExitNotice = (url: string): boolean => {
+  let parsed: URL;
+
+  try {
+    parsed = new URL(url);
+  } catch {
+    return false;
+  }
+
+  return HTTP_PROTOCOLS.has(parsed.protocol) && !isGovHostname(parsed.hostname);
+};
+
 const isExternal = to.startsWith('https://') || to.startsWith('http://');
+const shouldRequireExitNotice =
+  exitNotice === 'always'
+    ? true
+    : exitNotice === 'never'
+      ? false
+      : requiresExitNotice(to);
+const externalRel = rel ?? (isExternal ? 'noopener noreferrer' : undefined);
+const externalTarget = target ?? (isExternal ? '_blank' : undefined);
+
 const classes = [
   className,
   classNameProp,
@@ -23,7 +59,18 @@ const classes = [
   .join(' ');
 ---
 
-<a href={to} class={classes} {...isExternal && { rel: 'noopener', target: '_blank' }} {...rest}><slot /></a>
+<a
+  href={to}
+  class={classes}
+  rel={externalRel}
+  target={externalTarget}
+  data-requires-exit-notice={
+    shouldRequireExitNotice
+      ? 'true'
+      : (exitNoticeDataAttribute as string | undefined)
+  }
+  {...rest}
+><slot /></a>
 
 <style>
   .link--inherit-style,
