@@ -1,5 +1,7 @@
 import type { AnchorHTMLAttributes, ReactNode } from 'react';
 
+// Keep this URL classification logic aligned with `src/button/Button.tsx`.
+// If one changes, the other should usually change too.
 const HTTP_PROTOCOLS = new Set(['http:', 'https:']);
 
 const isGovHostname = (hostname: string): boolean => {
