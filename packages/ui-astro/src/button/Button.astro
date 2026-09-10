@@ -16,6 +16,10 @@ interface Props extends astroHTML.JSX.ButtonHTMLAttributes {
   icon?: string;
   href?: string;
   to?: string;
+  rel?: string;
+  target?: string;
+  exitNotice?: 'auto' | 'always' | 'never';
+  linkIndicator?: 'auto' | 'none';
   centered?: boolean;
 }
 
@@ -27,13 +31,64 @@ const {
   type = 'button',
   href,
   to,
+  exitNotice = 'auto',
+  linkIndicator = 'auto',
+  rel,
+  target,
+  'data-requires-exit-notice': exitNoticeDataAttribute,
   centered,
   ...rest
-} = Astro.props;
+} = Astro.props as Props & { 'data-requires-exit-notice'?: string };
+
+// Keep this URL classification logic aligned with `../link/Link.astro`.
+// If one changes, the other should usually change too.
+const HTTP_PROTOCOLS = new Set(['http:', 'https:']);
+
+const isGovHostname = (hostname: string): boolean => {
+  const normalized = hostname.toLowerCase().replace(/\.+$/, '');
+  return normalized === 'gov' || normalized.endsWith('.gov');
+};
+
+const requiresExitNotice = (url: string): boolean => {
+  let parsed: URL;
+
+  try {
+    parsed = new URL(url);
+  } catch {
+    return false;
+  }
+
+  return HTTP_PROTOCOLS.has(parsed.protocol) && !isGovHostname(parsed.hostname);
+};
+
+const isExternalHttpUrl = (url: string): boolean =>
+  url.startsWith('https://') || url.startsWith('http://');
+
+const hasExplicitScheme = (url: string): boolean =>
+  /^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(url);
 
 const targetUrl = href || to;
 const Tag = targetUrl ? 'a' : 'button';
 const isStyled = variant !== 'unstyled';
+const isExternal = targetUrl ? isExternalHttpUrl(targetUrl) : false;
+const shouldRequireExitNotice =
+  targetUrl && exitNotice === 'always'
+    ? true
+    : targetUrl && exitNotice === 'never'
+      ? false
+      : targetUrl
+        ? requiresExitNotice(targetUrl)
+        : false;
+const indicatorIcon =
+  linkIndicator === 'none'
+    ? undefined
+    : targetUrl && isExternal
+      ? 'launch'
+      : targetUrl && !hasExplicitScheme(targetUrl)
+        ? 'arrow_forward'
+        : undefined;
+const resolvedRel = rel ?? (isExternal ? 'noopener noreferrer' : undefined);
+const resolvedTarget = target ?? (isExternal ? '_blank' : undefined);
 
 const variantClasses =
   variant === 'default'
@@ -54,7 +109,18 @@ const classes = [
   .join(' ');
 
 const tagProps = {
-  ...(targetUrl ? { href: targetUrl } : { type }),
+  ...(targetUrl
+    ? {
+        href: targetUrl,
+        rel: resolvedRel,
+        target: resolvedTarget,
+        ...(shouldRequireExitNotice
+          ? { 'data-requires-exit-notice': 'true' }
+          : exitNoticeDataAttribute
+            ? { 'data-requires-exit-notice': exitNoticeDataAttribute }
+            : {}),
+      }
+    : { type }),
   class: classes,
   ...rest,
 };
@@ -63,6 +129,7 @@ const tagProps = {
 <Tag {...tagProps}>
   {icon && <Icon name={icon} />}
   <slot />
+  {indicatorIcon && <Icon name={indicatorIcon} size={2} class="margin-left-05 text-middle" />}
 </Tag>
 
 <style>
