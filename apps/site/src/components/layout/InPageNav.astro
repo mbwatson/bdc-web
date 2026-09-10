@@ -22,6 +22,7 @@
 
 ---
 import Button from '@bdc/ui-astro/button/Button.astro';
+import Icon from '@bdc/ui-astro/icon/Icon.astro';
 
 interface Props {
   title?: string;
@@ -44,8 +45,9 @@ const { title = 'On this page' } = Astro.props;
     <Button
       href="#main-content"
       variant="outline"
+      linkIndicator="none"
       class="in-page-nav__back-to-top order-2 margin-top-8 margin-bottom-0 margin-x-auto"
-    >↑ Back to top</Button>
+    ><Icon name="arrow_upward" size={2} /> Back to top</Button>
   </aside>
   <div class="usa-prose">
     <slot />
