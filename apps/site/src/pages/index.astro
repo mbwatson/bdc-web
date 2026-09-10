@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Button from '@bdc/ui-astro/button/Button.astro';
+import Card from '@bdc/ui-astro/card/Card.astro';
 import CardCopy from '@bdc/ui-astro/card/CardCopy.astro';
 import CardCta from '@bdc/ui-astro/card/CardCta.astro';
 import Icon from '@bdc/ui-astro/icon/Icon.astro';
@@ -12,13 +13,14 @@ import Link from '@bdc/ui-astro/link/Link.astro';
 import Blockquote from '@components/Blockquote.astro';
 import HappeningCard from '@components/cards/HappeningCard.astro';
 import ResearchCommunityCard from '@components/cards/ResearchCommunityCard.astro';
-import { DugSearchBar } from '@components/dug';
 import ProcessSteps from '@components/home/ProcessSteps.astro';
+import Notice from '@components/Notice.astro';
+import Screenshot from '@components/Screenshot.astro';
 import YouTubeEmbed from '@components/YouTubeEmbed.astro';
 import programs from '@content/programs.json';
 import Base from '@layouts/Base.astro';
 import homeCoursesImage from '../assets/bdc-course-photo.png';
-import homeHeroGraphic from '../assets/home-hero-sb-workflows.png';
+import homeHeroGraphic from '../assets/home-hero.png';
 import { slugify } from '../util/slugify';
 
 const news = (await getCollection('news'))
@@ -148,17 +150,18 @@ const nextEvent = events[0];
       primaryCta={{ label: 'Learn About BDC', href: '/about/bdc', variant: 'accent-warm' }}
       tone="dark"
     >
-      <img
-        slot="visual"
-        aria-hidden="true"
-        class="display-block width-full height-auto"
-        src={homeHeroGraphic.src}
-        width={homeHeroGraphic.width}
-        height={homeHeroGraphic.height}
-        alt=""
-        loading="eager"
-        decoding="async"
-      />
+      <div slot="visual" class="home-hero-visual position-relative width-full maxw-tablet-lg" aria-hidden="true">
+        <div class="home-hero-visual__halo home-hero-visual__halo--left"></div>
+        <div class="home-hero-visual__halo home-hero-visual__halo--right"></div>
+        <Screenshot
+          src={homeHeroGraphic.src}
+          width={homeHeroGraphic.width}
+          height={homeHeroGraphic.height}
+          alt=""
+          rotateX={15}
+          rotateY={29}
+        />
+      </div>
     </Hero>
 
     <PageSection
@@ -166,20 +169,20 @@ const nextEvent = events[0];
       title="Ask Bigger Questions with NHLBI Data"
       tone="highlight"
     >
-      <div class="grid-row grid-gap-4">
+      <div class="grid-row grid-gap-4 margin-bottom-4">
         <div class="tablet:grid-col-4 border-top-1px border-accent-cool padding-top-4">
           <h3 class="font-heading-lg margin-top-0">Build on decades of NHLBI research</h3>
           <p class="margin-bottom-0 line-height-sans-4">
             Access well-characterized data from longstanding NHLBI studies and programs.
           </p>
         </div>
-        <div class="tablet:grid-col-4 border-top-1px border-accent-cool padding-top-4">
+        <div class="tablet:grid-col-4 tablet:border-top-1px tablet:border-accent-cool padding-top-4">
           <h3 class="font-heading-lg margin-top-0">Connect data in new ways</h3>
           <p class="margin-bottom-0 line-height-sans-4">
             Bring together information across studies, cohorts, phenotypes, and genomic resources to ask questions beyond a single dataset.
           </p>
         </div>
-        <div class="tablet:grid-col-4 border-top-1px border-accent-cool padding-top-4">
+        <div class="tablet:grid-col-4 tablet:border-top-1px tablet:border-accent-cool padding-top-4">
           <h3 class="font-heading-lg margin-top-0">Analyze without building the infrastructure</h3>
           <p class="margin-bottom-0 line-height-sans-4">
             Use secure, scalable cloud environments and reusable analytical resources alongside the data.
@@ -189,19 +192,106 @@ const nextEvent = events[0];
     </PageSection>
 
     <PageSection
-      eyebrow="Search Hosted Data"
-      title="Discover Data in BDC"
-      action={{ label: 'View all data search tools', href: '/data/explore' }}
+      eyebrow="Data in BDC"
+      title="Build on Decades of NHLBI Research"
+      tone="muted"
     >
-      <p slot="description">Search by disease, phenotype, biological process, or anatomical entity.</p>
-      <DugSearchBar
-        id="home-discover-search"
-        placeholder="Try “asthma,” “blood pressure,” or “atrial fibrillation”"
-        submitLabel="Search"
-        action="/data/explore/dug"
-        method="get"
-        className="home-discover-search display-flex width-full shadow-2"
-      />
+      <div class="grid-container padding-x-0">
+        <div class="grid-row grid-gap-md">
+          <div class="grid-col-12 desktop:grid-col-8 padding-top-2">
+            <div class="grid-container padding-left-0 padding-right-2">
+              <div class="grid-row grid-gap-md margin-bottom-2">
+                <div class="grid-col-6 display-flex flex-align-stretch">
+                  <Card>
+                    <h3 class="font-heading-lg margin-top-1">Longitudinal &<br /> Epidemiologic Data</h3>
+                    <p class="usa-prose margin-0">
+                      Long-running cohort and observational studies with repeated measures over time
+                    </p>
+                  </Card>
+                </div>
+                <div class="grid-col-6 display-flex flex-align-stretch">
+                  <Card>
+                    <h3 class="font-heading-lg margin-top-1">Phenotypic &<br /> Clinical Data</h3>
+                    <p class="usa-prose margin-0">
+                      Detailed health, behavioral, environmental, and clinical characterization
+                    </p>
+                  </Card>
+                </div>
+              </div>
+              <div class="grid-row grid-gap-md margin-bottom-2">
+                <div class="grid-col-6 display-flex flex-align-stretch">
+                  <Card>
+                    <h3 class="font-heading-lg margin-top-1">Genomic &<br /> Omics Data</h3>
+                    <p class="usa-prose margin-0">
+                      Whole-genome sequencing and complementary molecular data
+                    </p>
+                  </Card>
+                </div>
+                <div class="grid-col-6 display-flex flex-align-stretch">
+                  <Card>
+                    <h3 class="font-heading-lg margin-top-1">Specialized HLBS Data</h3>
+                    <p class="usa-prose margin-0">
+                      Imaging, sleep, physiological, and disease-specific research data
+                    </p>
+                  </Card>
+                </div>
+              </div>
+            </div>
+            <div class="padding-y-2 padding-right-2 display-flex flex-column">
+              <Card variant="feature" class="bg-primary-lightest" border={false}>
+                <h3 class="text-center margin-y-1">Analyze together in BDC</h3>
+                <p class="usa-prose text-center">
+                  Connect data across studies and data types to ask questions that extend beyond a single dataset.
+                </p>
+              </Card>
+              <Button href="/data/explore" class="padding-x-6 margin-top-4 margin-x-auto">Explore BDC Data</Button>
+            </div>
+          </div>
+          <div class="grid-col-12 desktop:grid-col-4">
+            <div class="grid-container padding-left-4 padding-right-0 desktop:border-left desktop:border-base-lighter">
+              <div class="grid-row">
+                <div class="grid-col-12">
+                  <div class="text-uppercase text-bold text-ls-2 font-sans-2xs margin-top-3 text-primary-darker">Breadth & Scale</div>
+                  <p class="text-primary-dark">
+                    A growing resource with broad coverage and deep scientific value.
+                  </p>
+                </div>
+              </div>
+              <div class="grid-row">
+                <div class="grid-col-6 tablet-lg:grid-col-3 desktop:grid-col-12 display-flex flex-row mobile:flex-column desktop:border-bottom desktop:border-base-lighter padding-y-3">
+                  <IconBadge icon="share" tone="secondary" size={9} iconSize={5} class="margin-right-2" />
+                  <div class="flex-1">
+                    <div class="font-heading-2xl text-bold margin-bottom-1">500+</div>
+                    <div class="text-uppercase text-ls-2 font-sans-3xs margin-bottom-1">Hosted Datasets</div>
+                  </div>
+                </div>
+                <div class="grid-col-6 tablet-lg:grid-col-3 desktop:grid-col-12 display-flex flex-row mobile:flex-column desktop:border-bottom desktop:border-base-lighter padding-y-3">
+                  <IconBadge icon="layers" tone="secondary" size={9} iconSize={5} class="margin-right-2" />
+                  <div class="flex-1">
+                    <div class="font-heading-2xl text-bold margin-bottom-1">39%</div>
+                    <div class="text-uppercase text-ls-2 font-sans-3xs margin-bottom-1">Multi-modal datasets</div>
+                  </div>
+                </div>
+                <div class="grid-col-6 tablet-lg:grid-col-3 desktop:grid-col-12 display-flex flex-row mobile:flex-column desktop:border-bottom desktop:border-base-lighter padding-y-3">
+                  <IconBadge icon="network" tone="secondary" size={9} iconSize={5} class="margin-right-2" />
+                  <div class="flex-1">
+                    <div class="font-heading-2xl text-bold margin-bottom-1">26</div>
+                    <div class="text-uppercase text-ls-2 font-sans-3xs margin-bottom-1">Distinct data types</div>
+                  </div>
+                </div>
+                <div class="grid-col-6 tablet-lg:grid-col-3 desktop:grid-col-12 display-flex flex-row mobile:flex-column padding-y-3">
+                  <IconBadge icon="cloud-outline" tone="secondary" size={9} iconSize={5} class="margin-right-2" />
+                  <div class="flex-1">
+                    <div class="font-heading-2xl text-bold">5+</div>
+                    <div class="text-uppercase text-ls-2 font-sans-3xs">petabytes of data</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </PageSection>
 
     <PageSection
@@ -223,21 +313,21 @@ const nextEvent = events[0];
           through analysis, collaboration, reproducibility, and publication.
         </p>
       </Fragment>
-      <div class="margin-top-5 margin-bottom-0 text-center display-flex text-primary-darker flex-align-center flex-justify-center">
-        <IconBadge icon="support" tone="warm" size={4} class="margin-right-1" />
+      <Notice icon="attach_money" tone="cool">
+        Cloud Credits may be available for you to get started.&nbsp;
+        <Link to="/help/costs" class="text-bold">Learn about usage costs and cloud credits</Link>.
+      </Notice>
+      <ProcessSteps steps={lifecycleSteps} tone="muted" />
+      <Notice
+        icon="support"
+        tone="warm"
+        class="margin-top-5 margin-bottom-0 text-center text-primary-darker"
+      >
         <span class="margin-right-1">Need help with BDC?</span>{' '}
         <Link to="/help/get-help" class="text-bold">
           Submit a request
         </Link>.
-      </div>
-      <ProcessSteps steps={lifecycleSteps} tone="muted" />
-      <div class="display-flex flex-justify-center flex-align-center margin-top-2 margin-bottom-0">
-        <IconBadge icon="attach_money" tone="cool" class="margin-right-1" />
-        <span>
-          Funding may be available for you to get started.&nbsp;
-          <Link to="/help/costs" class="text-bold">Learn about usage costs and funding options</Link>.
-        </span>
-      </div>
+      </Notice>
 
       <div
         class="usa-modal-wrapper is-hidden"
@@ -266,15 +356,14 @@ const nextEvent = events[0];
     </PageSection>
 
     <PageSection
-      eyebrow="Featured Datasets"
-      title="Explore NHLBI Data for Analysis"
-      action={{ label: 'View all datasets', href: '/about/research-communities' }}
+      eyebrow="Featured Initatives"
+      title="Researcher-Focused Initiatives"
       tone="default"
     >
       <p slot="description">
-        Discover data from NHLBI-supported studies and programs,
-        including resources that can be used together
-        to investigate questions across populations, phenotypes, and molecular data.
+        Discover how BDC works with research initiatives
+        to support researchers, improve their experience in the ecosystem,
+        and advance data-driven research.
       </p>
       <div class="grid-row grid-gap-3 margin-bottom-neg-3">
         {featuredCommunities.map((program, index) => (
@@ -292,7 +381,7 @@ const nextEvent = events[0];
       </div>
 
       <p class="margin-top-4 margin-bottom-2 display-flex flex-justify-center">
-        <Link class="text-bold" to="/about/studies">Explore all BDC data</Link>
+        <Link class="text-bold" to="/about/studies">View all Researcher-Focused Initiatives</Link>
       </p>
     </PageSection>
 
@@ -336,13 +425,10 @@ const nextEvent = events[0];
       mediaImage={homeCoursesImage}
       mediaAlt=""
     >
-      <div class="display-flex flex-justify-center flex-align-center margin-top-2 margin-bottom-0">
-        <IconBadge icon="attach_money" tone="cool" class="margin-right-1" />
-        <span>
-          Funding may be available for courses and training.
-          <Link to="/help/costs" class="text-bold">Learn more</Link>.
-        </span>
-      </div>
+      <Notice icon="attach_money" tone="cool">
+        Cloud Credits may be available for courses and training.<br />
+        <Link to="/help/costs" class="text-bold">Learn more</Link>.
+      </Notice>
     </TwoColumnSection>
 
     <PageSection
@@ -434,6 +520,11 @@ const nextEvent = events[0];
 </Base>
 
 <style lang="scss">
+  @use "@bdc/uswds-theme/src/uswds-init" as core;
+
+  $cta-band-start: core.core-color(core.$theme-color-primary-darker);
+  $cta-band-end: core.core-color(core.$theme-color-primary);
+
   .home-page {
     background: linear-gradient(180deg, #f7fbff 0%, #ffffff 30%, #f8fbff 100%);
   }
@@ -442,8 +533,8 @@ const nextEvent = events[0];
     background:
       radial-gradient(circle at 10% 20%, rgb(63 122 212 / 42%) 0%, transparent 28%),
       radial-gradient(circle at 86% 26%, rgb(239 158 70 / 30%) 0%, transparent 26%),
-      linear-gradient(130deg, #0b3168 0%, #0d4695 100%);
-    color: #fff;
+      linear-gradient(130deg, $cta-band-start 0%, $cta-band-end 100%);
+    color: core.core-color('white');
   }
 
   .cta-band__inner {
@@ -452,6 +543,35 @@ const nextEvent = events[0];
 
   .cta-band__description {
     max-width: 58ch;
+  }
+
+  .home-hero-visual {
+    isolation: isolate;
+  }
+
+  .home-hero-visual__halo {
+    border-radius: 999px;
+    filter: blur(24px);
+    opacity: 0.8;
+    pointer-events: none;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .home-hero-visual__halo--left {
+    background: radial-gradient(circle, rgb(93 173 255 / 42%) 0%, transparent 68%);
+    height: 240px;
+    left: -74px;
+    top: -30px;
+    width: 240px;
+  }
+
+  .home-hero-visual__halo--right {
+    background: radial-gradient(circle, rgb(245 164 91 / 38%) 0%, transparent 70%);
+    bottom: -64px;
+    height: 210px;
+    right: -66px;
+    width: 210px;
   }
 
   @media (min-width: 64em) {
