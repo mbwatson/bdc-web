@@ -4,9 +4,7 @@ import IconBadge from '@bdc/ui-astro/icon/IconBadge.astro';
 interface Props {
   icon: string;
   tone?: 'secondary' | 'cool' | 'warm' | 'neutral';
-  variant?: 'inline' | 'medium' | 'feature' | 'feature-lg';
-  size?: 3 | 4 | 5 | 6 | 7 | 8 | 9;
-  iconSize?: 3 | 4 | 5 | 6 | 7;
+  variant?: 'inline' | 'compact' | 'medium' | 'feature';
   class?: string;
 }
 
@@ -14,8 +12,6 @@ const {
   icon,
   tone = 'secondary',
   variant = 'inline',
-  size,
-  iconSize,
   class: className,
 } = Astro.props;
 ---
@@ -26,7 +22,7 @@ const {
     className,
   ]}
 >
-  <IconBadge icon={icon} tone={tone} variant={variant} size={size} iconSize={iconSize} class="margin-right-1" />
+  <IconBadge icon={icon} tone={tone} variant={variant} class="margin-right-1" />
   <span>
     <slot />
   </span>
