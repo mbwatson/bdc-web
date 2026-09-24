@@ -11,7 +11,7 @@ import {
 } from '@trussworks/react-uswds';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import bdcLogo from '../../assets/bdc-logo.svg';
-import classes from './layout.module.css';
+import classes from './layout.module.scss';
 
 export function SiteHeader() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -170,6 +170,7 @@ export function SiteHeader() {
     <div
       ref={headerRef}
       data-analytics-section="header"
+      data-mobile-menu-open={mobileNavOpen ? 'true' : 'false'}
       className={`${classes.siteHeaderContainer} ${scrolled ? classes.scrolled : ''}`}
     >
       <GovBanner />
@@ -191,7 +192,7 @@ export function SiteHeader() {
               srText="Menu"
               onClick={toggleMobileNav}
               aria-expanded={mobileNavOpen}
-              className="usa-menu-btn margin-right-2 desktop:display-none"
+              className={`usa-menu-btn margin-right-2 desktop:display-none ${classes.mobileMenuButton} ${mobileNavOpen ? classes.mobileMenuButtonOpen : ''}`}
             />
           </div>
           <PrimaryNav
@@ -199,7 +200,9 @@ export function SiteHeader() {
             mobileExpanded={mobileNavOpen}
             onToggleMobileNav={toggleMobileNav}
           >
-            <SearchInput />
+            <div className="display-flex flex-justify-center position-absolute bottom-0 margin-bottom-10 width-full">
+              <SearchInput />
+            </div>
           </PrimaryNav>
         </div>
       </Header>

@@ -7,7 +7,6 @@ export function SearchInput() {
   };
 
   return (
-    <search className="padding-y-2">
       <button
         type="button"
         className={`usa-search usa-search--small margin-0 display-flex flex-align-center bg-base-lightest border border-base-lighter radius-pill width-card padding-y-05 padding-x-1 ${styles.searchShell}`}
@@ -23,6 +22,5 @@ export function SearchInput() {
           color="gray"
         />
       </button>
-    </search>
   );
 }
