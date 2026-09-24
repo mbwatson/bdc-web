@@ -1,5 +1,10 @@
 version: 0.2
 
+env:
+  variables:
+    BUILD_WORKSPACE: "@bdc/site"
+    BUILD_ARTIFACT_DIR: "apps/site/dist"
+
 phases:
   install:
     runtime-versions:
@@ -9,10 +14,20 @@ phases:
       - npm ci
   build:
     commands:
-      - npm run build --workspace=@bdc/site
+      - |
+        if [ "$BUILD_WORKSPACE" = "@bdc/docs" ]; then
+          GITBOOK_ALLOW_OVERWRITE=1 npm run build --workspace="$BUILD_WORKSPACE"
+        else
+          npm run build --workspace="$BUILD_WORKSPACE"
+        fi
+  post_build:
+    commands:
+      - rm -rf build-output
+      - mkdir -p build-output
+      - cp -R "$BUILD_ARTIFACT_DIR"/. build-output/
 
 artifacts:
-  base-directory: apps/site/dist
+  base-directory: build-output
   files:
     - '**/*'
 
