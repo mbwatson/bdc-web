@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from 'react';
 import Icon, { type IconName } from '../icon/Icon';
 
 type Tone = 'secondary' | 'warm' | 'cool' | 'neutral' | 'primary';
@@ -24,23 +24,27 @@ const toneClasses: Record<Tone, string> = {
     'bg-base-lightest hover:bg-base-lighter text-primary-dark       hover:text-primary-dark',
 };
 
-export default function IconButton({
-  icon,
-  label,
-  iconSize,
-  small = false,
-  tone = 'secondary',
-  srText,
-  className,
-  children,
-  ...buttonProps
-}: Props) {
+const IconButton = forwardRef<HTMLButtonElement, Props>(function IconButton(
+  {
+    icon,
+    label,
+    iconSize,
+    small = false,
+    tone = 'secondary',
+    srText,
+    className,
+    children,
+    ...buttonProps
+  },
+  ref,
+) {
   const IconComponent = Icon[icon];
   const resolvedIconSize = iconSize ?? (small ? 2 : 3);
   const sizeClass = small ? 'width-3 height-3' : 'width-4 height-4';
 
   return (
     <button
+      ref={ref}
       type="button"
       {...buttonProps}
       aria-label={label}
@@ -62,4 +66,6 @@ export default function IconButton({
       {srText && <span className="usa-sr-only">{srText}</span>}
     </button>
   );
-}
+});
+
+export default IconButton;
