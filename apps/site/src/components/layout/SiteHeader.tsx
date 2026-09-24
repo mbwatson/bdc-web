@@ -20,8 +20,19 @@ export function SiteHeader() {
   );
   const [scrolled, setScrolled] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
+  const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
 
-  const toggleMobileNav = () => setMobileNavOpen((prev) => !prev);
+  const toggleMobileNav = () => {
+    setMobileNavOpen((prev) => {
+      const nextOpen = !prev;
+
+      if (!nextOpen) {
+        setOpenDropdownIndex(null);
+      }
+
+      return nextOpen;
+    });
+  };
 
   const closeAll = useCallback(() => {
     setMobileNavOpen(false);
@@ -38,6 +49,36 @@ export function SiteHeader() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!mobileNavOpen) {
+      return;
+    }
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [mobileNavOpen]);
+
+  useEffect(() => {
+    const desktopMediaQuery = window.matchMedia('(min-width: 64em)');
+
+    const handleDesktopLayout = (event: MediaQueryList | MediaQueryListEvent) => {
+      if (event.matches) {
+        closeAll();
+      }
+    };
+
+    handleDesktopLayout(desktopMediaQuery);
+    desktopMediaQuery.addEventListener('change', handleDesktopLayout);
+
+    return () => {
+      desktopMediaQuery.removeEventListener('change', handleDesktopLayout);
+    };
+  }, [closeAll]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -59,16 +100,31 @@ export function SiteHeader() {
       closeAll();
     };
 
+    const handleNavLinkClick = (event: MouseEvent) => {
+      const target = event.target as Element | null;
+
+      if (!target || !mobileNavOpen) {
+        return;
+      }
+
+      if (target.closest('.usa-nav a')) {
+        closeAll();
+        mobileMenuButtonRef.current?.focus();
+      }
+    };
+
     document.addEventListener('mousedown', handleClickOutside);
     document.addEventListener('keydown', handleEscape);
     document.addEventListener('astro:after-swap', handleNavigation);
+    document.addEventListener('click', handleNavLinkClick);
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('keydown', handleEscape);
       document.removeEventListener('astro:after-swap', handleNavigation);
+      document.removeEventListener('click', handleNavLinkClick);
     };
-  }, [closeAll]);
+  }, [closeAll, mobileNavOpen]);
 
   const primaryNavItems = navConfig.map((item, index) => {
     if (item.items) {
@@ -125,6 +181,7 @@ export function SiteHeader() {
               <img src={bdcLogo.src} height="50" alt="BioData Catalyst home" />
             </a>
             <IconButton
+              ref={mobileMenuButtonRef}
               icon="Menu"
               label={
                 mobileNavOpen
