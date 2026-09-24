@@ -170,6 +170,7 @@ export function SiteHeader() {
     <div
       ref={headerRef}
       data-analytics-section="header"
+      data-mobile-menu-open={mobileNavOpen ? 'true' : 'false'}
       className={`${classes.siteHeaderContainer} ${scrolled ? classes.scrolled : ''}`}
     >
       <GovBanner />
@@ -191,7 +192,7 @@ export function SiteHeader() {
               srText="Menu"
               onClick={toggleMobileNav}
               aria-expanded={mobileNavOpen}
-              className="usa-menu-btn margin-right-2 desktop:display-none"
+              className={`usa-menu-btn margin-right-2 desktop:display-none ${classes.mobileMenuButton} ${mobileNavOpen ? classes.mobileMenuButtonOpen : ''}`}
             />
           </div>
           <PrimaryNav
