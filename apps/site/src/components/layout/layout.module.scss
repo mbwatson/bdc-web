@@ -1,10 +1,12 @@
+@use '@bdc/uswds-theme/src/uswds-init' as core;
+
 .siteHeaderContainer {
   --mobile-nav-max-width: 25rem;
-  --mobile-nav-surface: #f4f8fb;
-  --mobile-nav-border: #d9e6f2;
-  --mobile-nav-accent: #005ea2;
-  --mobile-nav-text: #1b1b1b;
-  --mobile-nav-muted: #3d4551;
+  --mobile-nav-surface: #{core.core-color(core.$theme-color-primary-lighter)};
+  --mobile-nav-border: #{core.core-color(core.$theme-color-primary-light)};
+  --mobile-nav-accent: #{core.core-color(core.$theme-color-primary)};
+  --mobile-nav-text: #{core.core-color(core.$theme-color-base-darkest)};
+  --mobile-nav-muted: #{core.core-color(core.$theme-color-base-dark)};
   min-height: 70px;
   margin-bottom: -70px;
   position: sticky;
@@ -15,34 +17,34 @@
 }
 
 .siteHeaderContainer.scrolled {
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 4px rgba(core.core-color(core.$theme-color-base-darkest), 0.1);
 }
 
 .mobileMenuButton {
-  border: 1px solid #d9e6f2;
-  background-color: #f4f8fb;
-  color: #005ea2;
+  border: 1px solid core.core-color(core.$theme-color-primary-light);
+  background-color: core.core-color(core.$theme-color-primary-lighter);
+  color: core.core-color(core.$theme-color-primary);
   transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease,
     box-shadow 180ms ease;
 }
 
 .mobileMenuButton:hover,
 .mobileMenuButton:focus-visible {
-  background-color: #e6f2fa;
-  border-color: #73b3e7;
-  color: #004b80;
-  box-shadow: 0 0 0 2px rgba(115, 179, 231, 0.35);
+  background-color: core.core-color(core.$theme-color-primary-lighter);
+  border-color: core.core-color(core.$theme-color-primary-light);
+  color: core.core-color(core.$theme-color-primary-dark);
+  box-shadow: 0 0 0 2px rgba(core.core-color(core.$theme-color-primary-light), 0.35);
 }
 
 .mobileMenuButtonOpen {
-  background-color: #005ea2;
-  border-color: #005ea2;
+  background-color: core.core-color(core.$theme-color-primary);
+  border-color: core.core-color(core.$theme-color-primary);
   color: #fff;
 }
 
 @media (max-width: 63.99em) {
   .siteHeaderContainer :global(.usa-overlay.is-visible) {
-    background: rgba(10, 35, 66, 0.28);
+    background: rgba(core.core-color(core.$theme-color-primary-darker), 0.28);
     backdrop-filter: blur(1.5px);
   }
 
@@ -54,26 +56,24 @@
 
   .siteHeaderContainer :global(.usa-nav__close:hover),
   .siteHeaderContainer :global(.usa-nav__close:focus-visible) {
-    background-color: #d9e6f2;
-    color: #1a4480;
+    background-color: core.core-color(core.$theme-color-primary-lighter);
+    color: core.core-color(core.$theme-color-primary-dark);
     outline: 0;
   }
 
   .siteHeaderContainer :global(.usa-nav) {
     padding: 0;
-    border: 1px solid var(--mobile-nav-border);
+    border-left: 1px solid var(--mobile-nav-border);
     background: linear-gradient(180deg, #fff 0%, var(--mobile-nav-surface) 100%);
     box-shadow: 0 18px 30px rgba(27, 27, 27, 0.16);
     overflow: hidden;
     overflow-y: auto;
     animation: mobileNavEnter 220ms ease;
     width: min(var(--mobile-nav-max-width), calc(100vw - 1rem));
-    max-height: calc(100dvh - 6rem);
     overscroll-behavior: contain;
   }
 
   .siteHeaderContainer :global(.usa-nav__primary-item) {
-    border-bottom: 1px solid var(--mobile-nav-border);
     padding: 0;
     opacity: 0;
     transform: translateY(6px);
@@ -118,8 +118,8 @@
   .siteHeaderContainer :global(.usa-nav__link:focus-visible),
   .siteHeaderContainer :global(.usa-accordion__button.usa-nav__link:hover),
   .siteHeaderContainer :global(.usa-accordion__button.usa-nav__link:focus-visible) {
-    background-color: #e6f2fa;
-    color: #004b80;
+    background-color: core.core-color(core.$theme-color-primary-lighter);
+    color: core.core-color(core.$theme-color-primary-dark);
     outline: 0;
   }
 
@@ -127,13 +127,11 @@
   .siteHeaderContainer :global(.usa-current > .usa-accordion__button.usa-nav__link) {
     border-left: 4px solid var(--mobile-nav-accent);
     padding-left: calc(1rem - 4px);
-    background-color: #e6f2fa;
-    color: #004b80;
+    background-color: core.core-color(core.$theme-color-primary-lighter);
+    color: core.core-color(core.$theme-color-primary-dark);
   }
 
   .siteHeaderContainer :global(.usa-nav__submenu) {
-    background-color: #eef5fb;
-    border-top: 1px solid var(--mobile-nav-border);
     padding: 0.25rem 0 0.5rem;
   }
 
@@ -148,8 +146,8 @@
 
   .siteHeaderContainer :global(.usa-nav__submenu-item a:hover),
   .siteHeaderContainer :global(.usa-nav__submenu-item a:focus-visible) {
-    background-color: #d9e6f2;
-    color: #1a4480;
+    background-color: core.core-color(core.$theme-color-primary-light);
+    color: core.core-color(core.$theme-color-primary-dark);
     outline: 0;
   }
 
@@ -171,7 +169,7 @@
   }
 
   .siteHeaderContainer :global(.usa-nav__secondary .usa-search:focus-within) {
-    box-shadow: 0 0 0 2px rgba(115, 179, 231, 0.35);
+    box-shadow: 0 0 0 2px rgba(core.core-color(core.$theme-color-primary-light), 0.35);
   }
 }
 

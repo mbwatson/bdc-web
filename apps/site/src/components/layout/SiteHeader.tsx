@@ -11,7 +11,7 @@ import {
 } from '@trussworks/react-uswds';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import bdcLogo from '../../assets/bdc-logo.svg';
-import classes from './layout.module.css';
+import classes from './layout.module.scss';
 
 export function SiteHeader() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
