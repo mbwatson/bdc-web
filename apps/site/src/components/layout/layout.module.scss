@@ -131,10 +131,6 @@
     color: core.core-color(core.$theme-color-primary-dark);
   }
 
-  .siteHeaderContainer :global(.usa-nav__submenu) {
-    padding: 0.25rem 0 0.5rem;
-  }
-
   .siteHeaderContainer :global(.usa-nav__submenu-item a) {
     min-height: 2rem;
     line-height: 2rem;
