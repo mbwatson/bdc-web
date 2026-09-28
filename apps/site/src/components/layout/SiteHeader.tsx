@@ -200,7 +200,10 @@ export function SiteHeader() {
             mobileExpanded={mobileNavOpen}
             onToggleMobileNav={toggleMobileNav}
           >
-            <div className="display-flex flex-justify-center position-absolute bottom-0 margin-bottom-10 width-full">
+            <div
+              className="display-flex flex-justify-center position-absolute bottom-0 margin-bottom-10 width-full"
+              onClick={closeAll}
+            >
               <SearchInput />
             </div>
           </PrimaryNav>
