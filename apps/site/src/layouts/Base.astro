@@ -54,6 +54,10 @@ const hasGa = typeof gaId === 'string' && gaId.length > 0;
 
         if (!window.__bdcGaInitialized) {
           window.gtag('js', new Date());
+          // Ensure GA4's analytics cookies include modern cookie attributes.
+          // These cookies are set client-side by GA, so we cannot make them HttpOnly,
+          // but we can at least enforce SameSite and Secure.
+          window.gtag('set', 'cookie_flags', 'SameSite=Lax;Secure');
           window.gtag('config', gaId, { send_page_view: false });
           window.__bdcGaInitialized = true;
         }
