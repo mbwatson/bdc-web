@@ -24,11 +24,11 @@ const materialIcons: Record<string, string> = {
 const {
   title,
   date,
-  end_date,
+  endDate,
   time,
   location,
   url,
-  registration_required,
+  registrationRequired,
   eventType,
   tags,
   externalEvent,
@@ -38,7 +38,7 @@ const {
 } = frontmatter;
 
 const now = new Date();
-const isPast = isPastEvent({ date, endDate: end_date }, now);
+const isPast = isPastEvent({ date, endDate }, now);
 ---
 
 <Base title={title}>
@@ -61,12 +61,12 @@ const isPast = isPastEvent({ date, endDate: end_date }, now);
         <EventHeader
           title={title}
           date={date}
-          endDate={end_date}
+          endDate={endDate}
           time={time}
           location={location}
           url={url}
           tags={tags}
-          registration_required={registration_required}
+          registrationRequired={registrationRequired}
           eventType={eventType}
           externalEvent={externalEvent}
           isPast={isPast}
@@ -77,7 +77,7 @@ const isPast = isPastEvent({ date, endDate: end_date }, now);
             <AddToCalendar
               title={title}
               date={date}
-              endDate={end_date}
+              endDate={endDate}
               location={location}
             />
           </p>
